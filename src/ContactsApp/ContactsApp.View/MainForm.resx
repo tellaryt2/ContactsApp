@@ -118,21 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="AddContactButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAglJREFUWEftVj1OAkEYRa2MP5V6Br2AjSaCB9Bo2MRll2ZjSWuIWoB6CKPewEaC
-        F9DauHgDG+lIRDTaKPg+fGMmgQ27O4sW+pIvM7x53/u+mR1YUv/4R1S4rjvnOM4RopbL5V4kMPcxHlqW
-        NUvZcIBCWRRqYez0C6w9ITYpTxYokEW0WejCtu0VnMaEBLg0osK1D4wbTEsGcuzazndI9wCaIjVNNDhD
-        2hwwlGfe3TmpQEBXpfaAlDlgdiemcuykAgFtRrQIn5Q5YPYsprjlk6QC4XnelGjRSIuUOWDYDNsAdNNs
-        4JGUOWB2K6aINKlA4MKusoEbUuaA4T4bqJAKBDSX1O6RMge/hg0xxlgk3QOs7VLTkBzSyQCm6zB/5+6q
-        +JyROyHBY1c7F80a05IFilow7/4aBkRbNJQnC5i7iLpWLCjq+L1wmGYOHPEYdnWmFfBx5IV8Pr+Asfsu
-        4LyAtZqmOymVSqO0iQ8YnYohmnjD6IEa+VrphRSEZptaaeKYS/EAA5tGrzBdIj0QeATLqgnMt0hHA45+
-        HCYPbEB2HgkovIh8K8z7oy/kIrG4H+dZIq/MfIky6fBA0rkky+UiFQlSVA/S4YGke4Q8w3lSoaAVvdLm
-        12pO2WCoSxTmDahDclQxhPxVk1CfO5QND1JEK/grDahi+iP4nlM2fGjFf7awAgvH/xr+EaRSn1R+cnQ/
-        efUAAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAYAAAAAAAEAIAAqHQAAZgAAAICAAAABACAAKAgBAJAdAABAQAAAAQAgAChCAAC4JQEAMDAAAAEA

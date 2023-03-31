@@ -32,24 +32,6 @@ namespace ContactsApp.View
 
         }
 
-        private void AddContactButton_Click(object sender, EventArgs e)
-        {
-            var form = new ContactForm();
-            form.ShowDialog();
-        }
-
-        private void AddContactButton_MouseEnter(object sender, EventArgs e)
-        {
-            AddContactButton.Image = Properties.Resources.add_contact_32x32;
-            AddContactButton.BackColor = ColorTranslator.FromHtml("#F5F5FF");
-        }
-
-        private void AddContactButton_MouseLeave(object sender, EventArgs e)
-        {
-            AddContactButton.Image = Properties.Resources.add_contact_32x32_gray;
-            AddContactButton.BackColor = Color.White;
-        }
-
         private void RemoveContactButton_MouseEnter(object sender, EventArgs e)
         {
             RemoveContactButton.Image = Properties.Resources.remove_contact_32x32;
@@ -123,6 +105,24 @@ namespace ContactsApp.View
             }
 
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void AddContactButton_Click_1(object sender, EventArgs e)
+        {
+            var form = new ContactForm();
+            form.ShowDialog();
+        }
+
+        private void AddContactButton_MouseEnter(object sender, EventArgs e)
+        {
+            AddContactButton.Image = Properties.Resources.add_contact_32x32;
+            AddContactButton.BackColor = ColorTranslator.FromHtml("#F5F5FF");
+        }
+
+        private void AddContactButton_MouseLeave(object sender, EventArgs e)
+        {
+            AddContactButton.Image = Properties.Resources.add_contact_32x32_gray;
+            AddContactButton.BackColor = Color.White;
         }
     }
 }

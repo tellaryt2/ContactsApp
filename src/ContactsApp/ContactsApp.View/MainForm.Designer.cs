@@ -32,7 +32,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.AddContactButton = new System.Windows.Forms.Button();
             this.RemoveContactButton = new System.Windows.Forms.PictureBox();
             this.ContactsListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.ProfilePictureBox = new System.Windows.Forms.PictureBox();
             this.EditContactButton = new System.Windows.Forms.PictureBox();
+            this.AddContactButton = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -64,6 +64,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.InfoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EditContactButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AddContactButton)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -102,31 +103,15 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Controls.Add(this.AddContactButton, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.RemoveContactButton, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.EditContactButton, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.AddContactButton, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 388);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(223, 35);
             this.tableLayoutPanel2.TabIndex = 4;
-            // 
-            // AddContactButton
-            // 
-            this.AddContactButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddContactButton.FlatAppearance.BorderSize = 0;
-            this.AddContactButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddContactButton.Image = ((System.Drawing.Image)(resources.GetObject("AddContactButton.Image")));
-            this.AddContactButton.Location = new System.Drawing.Point(0, 0);
-            this.AddContactButton.Margin = new System.Windows.Forms.Padding(0);
-            this.AddContactButton.Name = "AddContactButton";
-            this.AddContactButton.Size = new System.Drawing.Size(74, 35);
-            this.AddContactButton.TabIndex = 0;
-            this.AddContactButton.UseVisualStyleBackColor = true;
-            this.AddContactButton.Click += new System.EventHandler(this.AddContactButton_Click);
-            this.AddContactButton.MouseEnter += new System.EventHandler(this.AddContactButton_MouseEnter);
-            this.AddContactButton.MouseLeave += new System.EventHandler(this.AddContactButton_MouseLeave);
             // 
             // RemoveContactButton
             // 
@@ -386,6 +371,20 @@
             this.EditContactButton.MouseEnter += new System.EventHandler(this.EditContactButton_MouseEnter);
             this.EditContactButton.MouseLeave += new System.EventHandler(this.EditContactButton_MouseLeave);
             // 
+            // AddContactButton
+            // 
+            this.AddContactButton.Image = global::ContactsApp.View.Properties.Resources.add_contact_32x32_gray;
+            this.AddContactButton.Location = new System.Drawing.Point(0, 0);
+            this.AddContactButton.Margin = new System.Windows.Forms.Padding(0);
+            this.AddContactButton.Name = "AddContactButton";
+            this.AddContactButton.Size = new System.Drawing.Size(74, 35);
+            this.AddContactButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.AddContactButton.TabIndex = 4;
+            this.AddContactButton.TabStop = false;
+            this.AddContactButton.Click += new System.EventHandler(this.AddContactButton_Click_1);
+            this.AddContactButton.MouseEnter += new System.EventHandler(this.AddContactButton_MouseEnter);
+            this.AddContactButton.MouseLeave += new System.EventHandler(this.AddContactButton_MouseLeave);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -410,6 +409,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.InfoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EditContactButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AddContactButton)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -423,7 +423,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ListBox ContactsListBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button AddContactButton;
         private System.Windows.Forms.PictureBox ProfilePictureBox;
         private System.Windows.Forms.Panel BirthdayPanel;
         private System.Windows.Forms.Label label8;
@@ -442,6 +441,7 @@
         private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.PictureBox RemoveContactButton;
         private System.Windows.Forms.PictureBox EditContactButton;
+        private System.Windows.Forms.PictureBox AddContactButton;
     }
 }
 
