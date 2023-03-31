@@ -397,6 +397,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "ContactsApp";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

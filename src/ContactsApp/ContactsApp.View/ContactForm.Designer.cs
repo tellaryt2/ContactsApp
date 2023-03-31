@@ -204,6 +204,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel2.Controls.Add(this.OKButton);
             this.panel2.Controls.Add(this.CancelButton);
             this.panel2.Location = new System.Drawing.Point(0, 333);

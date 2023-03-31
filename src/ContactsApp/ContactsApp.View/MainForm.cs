@@ -109,5 +109,20 @@ namespace ContactsApp.View
             var form = new ContactForm();
             form.ShowDialog();
         }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F1)
+            {
+                var form = new AboutForm();
+                form.ShowDialog();
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
     }
 }
