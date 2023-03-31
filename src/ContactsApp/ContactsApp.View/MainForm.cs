@@ -91,5 +91,23 @@ namespace ContactsApp.View
         {
             BirthdayPanel.Hide();
         }
+
+        private void EditContactButton_MouseEnter(object sender, EventArgs e)
+        {
+            EditContactButton.Image = Properties.Resources.edit_contact_32x32;
+            EditContactButton.BackColor = ColorTranslator.FromHtml("#F5F5FF");
+        }
+
+        private void EditContactButton_MouseLeave(object sender, EventArgs e)
+        {
+            EditContactButton.Image = Properties.Resources.edit_contact_32x32_gray;
+            EditContactButton.BackColor = Color.White;
+        }
+
+        private void EditContactButton_Click(object sender, EventArgs e)
+        {
+            var form = new ContactForm();
+            form.ShowDialog();
+        }
     }
 }
