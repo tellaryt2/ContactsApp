@@ -28,52 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.ContactsLabel = new System.Windows.Forms.Label();
+            this.MainPanel = new System.Windows.Forms.Panel();
             this.IconsLinkLabel = new System.Windows.Forms.LinkLabel();
             this.label8 = new System.Windows.Forms.Label();
             this.InfoListBox = new System.Windows.Forms.ListBox();
             this.GitLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.EmailLabel = new System.Windows.Forms.Label();
+            this.NameLabel = new System.Windows.Forms.Label();
+            this.GithubLabel = new System.Windows.Forms.Label();
+            this.FixEmailLabel = new System.Windows.Forms.Label();
+            this.AuthorLabel = new System.Windows.Forms.Label();
+            this.VersionLabel = new System.Windows.Forms.Label();
+            this.FooterPanel = new System.Windows.Forms.Panel();
             this.OKButton = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.MainPanel.SuspendLayout();
+            this.FooterPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // ContactsLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(3, 6);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ContactsApp";
+            this.ContactsLabel.AutoSize = true;
+            this.ContactsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ContactsLabel.Location = new System.Drawing.Point(3, 6);
+            this.ContactsLabel.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
+            this.ContactsLabel.Name = "ContactsLabel";
+            this.ContactsLabel.Size = new System.Drawing.Size(146, 25);
+            this.ContactsLabel.TabIndex = 0;
+            this.ContactsLabel.Text = "ContactsApp";
             // 
-            // panel1
+            // MainPanel
             // 
-            this.panel1.Controls.Add(this.IconsLinkLabel);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.InfoListBox);
-            this.panel1.Controls.Add(this.GitLinkLabel);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(540, 417);
-            this.panel1.TabIndex = 1;
+            this.MainPanel.Controls.Add(this.IconsLinkLabel);
+            this.MainPanel.Controls.Add(this.label8);
+            this.MainPanel.Controls.Add(this.InfoListBox);
+            this.MainPanel.Controls.Add(this.GitLinkLabel);
+            this.MainPanel.Controls.Add(this.EmailLabel);
+            this.MainPanel.Controls.Add(this.NameLabel);
+            this.MainPanel.Controls.Add(this.GithubLabel);
+            this.MainPanel.Controls.Add(this.FixEmailLabel);
+            this.MainPanel.Controls.Add(this.AuthorLabel);
+            this.MainPanel.Controls.Add(this.VersionLabel);
+            this.MainPanel.Controls.Add(this.ContactsLabel);
+            this.MainPanel.Location = new System.Drawing.Point(12, 12);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(540, 417);
+            this.MainPanel.TabIndex = 1;
             // 
             // IconsLinkLabel
             // 
@@ -139,71 +139,71 @@
             this.GitLinkLabel.Text = "https://github.com/tellaryt2";
             this.GitLinkLabel.Click += new System.EventHandler(this.GitLinkLabel_Click);
             // 
-            // label7
+            // EmailLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(117, 93);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(143, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "minnebaevartem@gmail.com";
+            this.EmailLabel.AutoSize = true;
+            this.EmailLabel.Location = new System.Drawing.Point(117, 93);
+            this.EmailLabel.Name = "EmailLabel";
+            this.EmailLabel.Size = new System.Drawing.Size(143, 13);
+            this.EmailLabel.TabIndex = 6;
+            this.EmailLabel.Text = "minnebaevartem@gmail.com";
             // 
-            // label6
+            // NameLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(117, 70);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Minnebaev Artem";
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Location = new System.Drawing.Point(117, 70);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(90, 13);
+            this.NameLabel.TabIndex = 5;
+            this.NameLabel.Text = "Minnebaev Artem";
             // 
-            // label5
+            // GithubLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 116);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Github:";
+            this.GithubLabel.AutoSize = true;
+            this.GithubLabel.Location = new System.Drawing.Point(5, 116);
+            this.GithubLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.GithubLabel.Name = "GithubLabel";
+            this.GithubLabel.Size = new System.Drawing.Size(41, 13);
+            this.GithubLabel.TabIndex = 4;
+            this.GithubLabel.Text = "Github:";
             // 
-            // label4
+            // FixEmailLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 93);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "E-mail:";
+            this.FixEmailLabel.AutoSize = true;
+            this.FixEmailLabel.Location = new System.Drawing.Point(5, 93);
+            this.FixEmailLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.FixEmailLabel.Name = "FixEmailLabel";
+            this.FixEmailLabel.Size = new System.Drawing.Size(38, 13);
+            this.FixEmailLabel.TabIndex = 3;
+            this.FixEmailLabel.Text = "E-mail:";
             // 
-            // label3
+            // AuthorLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 70);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Author:";
+            this.AuthorLabel.AutoSize = true;
+            this.AuthorLabel.Location = new System.Drawing.Point(5, 70);
+            this.AuthorLabel.Name = "AuthorLabel";
+            this.AuthorLabel.Size = new System.Drawing.Size(41, 13);
+            this.AuthorLabel.TabIndex = 2;
+            this.AuthorLabel.Text = "Author:";
             // 
-            // label2
+            // VersionLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 34);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "v 1.0";
+            this.VersionLabel.AutoSize = true;
+            this.VersionLabel.Location = new System.Drawing.Point(5, 34);
+            this.VersionLabel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.VersionLabel.Name = "VersionLabel";
+            this.VersionLabel.Size = new System.Drawing.Size(31, 13);
+            this.VersionLabel.TabIndex = 1;
+            this.VersionLabel.Text = "v 1.0";
             // 
-            // panel2
+            // FooterPanel
             // 
-            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.Controls.Add(this.OKButton);
-            this.panel2.Location = new System.Drawing.Point(0, 393);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(563, 50);
-            this.panel2.TabIndex = 2;
+            this.FooterPanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.FooterPanel.Controls.Add(this.OKButton);
+            this.FooterPanel.Location = new System.Drawing.Point(0, 393);
+            this.FooterPanel.Name = "FooterPanel";
+            this.FooterPanel.Size = new System.Drawing.Size(563, 50);
+            this.FooterPanel.TabIndex = 2;
             // 
             // OKButton
             // 
@@ -221,33 +221,33 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(564, 441);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.FooterPanel);
+            this.Controls.Add(this.MainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AboutForm";
             this.ShowIcon = false;
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            this.MainPanel.ResumeLayout(false);
+            this.MainPanel.PerformLayout();
+            this.FooterPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label ContactsLabel;
+        private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.LinkLabel GitLinkLabel;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label EmailLabel;
+        private System.Windows.Forms.Label NameLabel;
+        private System.Windows.Forms.Label GithubLabel;
+        private System.Windows.Forms.Label FixEmailLabel;
+        private System.Windows.Forms.Label AuthorLabel;
+        private System.Windows.Forms.Label VersionLabel;
         private System.Windows.Forms.ListBox InfoListBox;
         private System.Windows.Forms.LinkLabel IconsLinkLabel;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel FooterPanel;
         private System.Windows.Forms.Button OKButton;
 
        
