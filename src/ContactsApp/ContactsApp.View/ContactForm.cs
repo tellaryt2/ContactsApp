@@ -15,8 +15,7 @@ namespace ContactsApp.View
         public ContactForm()
         {
             InitializeComponent();
-            this.MinimumSize = new Size(530, 420);
-            this.MaximumSize = new Size(530, 420);
+
         }
 
         private void AddPhotoButton_MouseEnter(object sender, EventArgs e)

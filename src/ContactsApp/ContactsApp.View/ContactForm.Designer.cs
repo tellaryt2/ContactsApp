@@ -220,6 +220,7 @@
             this.ClientSize = new System.Drawing.Size(514, 381);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ContactForm";
             this.ShowIcon = false;
             this.panel1.ResumeLayout(false);
