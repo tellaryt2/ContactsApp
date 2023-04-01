@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutForm));
             this.ContactsLabel = new System.Windows.Forms.Label();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.IconsLinkLabel = new System.Windows.Forms.LinkLabel();
             this.label8 = new System.Windows.Forms.Label();
-            this.InfoListBox = new System.Windows.Forms.ListBox();
             this.GitLinkLabel = new System.Windows.Forms.LinkLabel();
             this.EmailLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
@@ -42,6 +42,7 @@
             this.VersionLabel = new System.Windows.Forms.Label();
             this.FooterPanel = new System.Windows.Forms.Panel();
             this.OKButton = new System.Windows.Forms.Button();
+            this.LicenseTextBox = new System.Windows.Forms.TextBox();
             this.MainPanel.SuspendLayout();
             this.FooterPanel.SuspendLayout();
             this.SuspendLayout();
@@ -59,9 +60,9 @@
             // 
             // MainPanel
             // 
+            this.MainPanel.Controls.Add(this.LicenseTextBox);
             this.MainPanel.Controls.Add(this.IconsLinkLabel);
             this.MainPanel.Controls.Add(this.label8);
-            this.MainPanel.Controls.Add(this.InfoListBox);
             this.MainPanel.Controls.Add(this.GitLinkLabel);
             this.MainPanel.Controls.Add(this.EmailLabel);
             this.MainPanel.Controls.Add(this.NameLabel);
@@ -95,38 +96,6 @@
             this.label8.Size = new System.Drawing.Size(182, 13);
             this.label8.TabIndex = 9;
             this.label8.Text = "All used images are downloaded from";
-            // 
-            // InfoListBox
-            // 
-            this.InfoListBox.FormattingEnabled = true;
-            this.InfoListBox.Items.AddRange(new object[] {
-            "Copyright (c) 2023 Minnebaev Artem",
-            "",
-            "Permission is hereby granted, free of charge, to any person obtaining a copy of t" +
-                "his software and ",
-            "associated documentation files (the \"Software\"), to deal in the Software without " +
-                "restriction, including ",
-            "without limitation the rights to use, copy, modify, merge, publish, distribute, s" +
-                "ublicense, and/or sell ",
-            "copies of the Software, and to permit persons to whom the Software is furnished t" +
-                "o do so, subject to the ",
-            "following conditions:",
-            "",
-            "The above copyright notice and this permission notice shall be included in all co" +
-                "pies or substantial ",
-            "portions of the Software.",
-            "",
-            "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR ",
-            "IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, ",
-            "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL ",
-            "THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR ",
-            "OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ",
-            "ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR ",
-            "OTHER DEALINGS IN THE SOFTWARE. "});
-            this.InfoListBox.Location = new System.Drawing.Point(8, 153);
-            this.InfoListBox.Name = "InfoListBox";
-            this.InfoListBox.Size = new System.Drawing.Size(529, 199);
-            this.InfoListBox.TabIndex = 8;
             // 
             // GitLinkLabel
             // 
@@ -215,6 +184,19 @@
             this.OKButton.UseVisualStyleBackColor = true;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
+            // LicenseTextBox
+            // 
+            this.LicenseTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LicenseTextBox.Location = new System.Drawing.Point(8, 146);
+            this.LicenseTextBox.Multiline = true;
+            this.LicenseTextBox.Name = "LicenseTextBox";
+            this.LicenseTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.LicenseTextBox.Size = new System.Drawing.Size(529, 206);
+            this.LicenseTextBox.TabIndex = 11;
+            this.LicenseTextBox.Text = resources.GetString("LicenseTextBox.Text");
+            this.LicenseTextBox.TextChanged += new System.EventHandler(this.LicenseTextBox_TextChanged);
+            this.LicenseTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LicenseTextBox_KeyPress);
+            // 
             // AboutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,12 +226,10 @@
         private System.Windows.Forms.Label FixEmailLabel;
         private System.Windows.Forms.Label AuthorLabel;
         private System.Windows.Forms.Label VersionLabel;
-        private System.Windows.Forms.ListBox InfoListBox;
         private System.Windows.Forms.LinkLabel IconsLinkLabel;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel FooterPanel;
         private System.Windows.Forms.Button OKButton;
-
-       
+        private System.Windows.Forms.TextBox LicenseTextBox;
     }
 }

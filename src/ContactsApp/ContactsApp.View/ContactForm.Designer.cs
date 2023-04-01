@@ -43,7 +43,7 @@
             this.CancelButton = new System.Windows.Forms.Button();
             this.OKButton = new System.Windows.Forms.Button();
             this.FooterPanel = new System.Windows.Forms.Panel();
-            this.BitrhDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AddPhotoButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContactPictureBox)).BeginInit();
@@ -52,7 +52,7 @@
             // 
             // MainPanel
             // 
-            this.MainPanel.Controls.Add(this.BitrhDateTimePicker);
+            this.MainPanel.Controls.Add(this.DateTimePicker);
             this.MainPanel.Controls.Add(this.AddPhotoButton);
             this.MainPanel.Controls.Add(this.VkTextBox);
             this.MainPanel.Controls.Add(this.VKLabel);
@@ -205,12 +205,12 @@
             this.FooterPanel.Size = new System.Drawing.Size(514, 49);
             this.FooterPanel.TabIndex = 24;
             // 
-            // BitrhDateTimePicker
+            // DateTimePicker
             // 
-            this.BitrhDateTimePicker.Location = new System.Drawing.Point(109, 175);
-            this.BitrhDateTimePicker.Name = "BitrhDateTimePicker";
-            this.BitrhDateTimePicker.Size = new System.Drawing.Size(209, 20);
-            this.BitrhDateTimePicker.TabIndex = 22;
+            this.DateTimePicker.Location = new System.Drawing.Point(109, 175);
+            this.DateTimePicker.Name = "DateTimePicker";
+            this.DateTimePicker.Size = new System.Drawing.Size(209, 20);
+            this.DateTimePicker.TabIndex = 22;
             // 
             // ContactForm
             // 
@@ -249,6 +249,6 @@
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button OKButton;
         private System.Windows.Forms.Panel FooterPanel;
-        private System.Windows.Forms.DateTimePicker BitrhDateTimePicker;
+        private System.Windows.Forms.DateTimePicker DateTimePicker;
     }
 }
