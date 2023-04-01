@@ -24,12 +24,12 @@ namespace ContactsApp.View
             this.Close();
         }
 
-        private void linkLabel1_Click(object sender, EventArgs e)
+        private void GitLinkLabel_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/tellaryt2");
         }
 
-        private void linkLabel2_Click(object sender, EventArgs e)
+        private void IconsLinkLabel_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://icons8.com");
         }

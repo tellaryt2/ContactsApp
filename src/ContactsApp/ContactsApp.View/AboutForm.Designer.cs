@@ -30,10 +30,10 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.IconsLinkLabel = new System.Windows.Forms.LinkLabel();
             this.label8 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.InfoListBox = new System.Windows.Forms.ListBox();
+            this.GitLinkLabel = new System.Windows.Forms.LinkLabel();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -59,10 +59,10 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.linkLabel2);
+            this.panel1.Controls.Add(this.IconsLinkLabel);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.listBox1);
-            this.panel1.Controls.Add(this.linkLabel1);
+            this.panel1.Controls.Add(this.InfoListBox);
+            this.panel1.Controls.Add(this.GitLinkLabel);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
@@ -75,17 +75,17 @@
             this.panel1.Size = new System.Drawing.Size(540, 417);
             this.panel1.TabIndex = 1;
             // 
-            // linkLabel2
+            // IconsLinkLabel
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(190, 355);
-            this.linkLabel2.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(61, 13);
-            this.linkLabel2.TabIndex = 10;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "icons8.com";
-            this.linkLabel2.Click += new System.EventHandler(this.linkLabel2_Click);
+            this.IconsLinkLabel.AutoSize = true;
+            this.IconsLinkLabel.Location = new System.Drawing.Point(190, 355);
+            this.IconsLinkLabel.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.IconsLinkLabel.Name = "IconsLinkLabel";
+            this.IconsLinkLabel.Size = new System.Drawing.Size(61, 13);
+            this.IconsLinkLabel.TabIndex = 10;
+            this.IconsLinkLabel.TabStop = true;
+            this.IconsLinkLabel.Text = "icons8.com";
+            this.IconsLinkLabel.Click += new System.EventHandler(this.IconsLinkLabel_Click);
             // 
             // label8
             // 
@@ -96,10 +96,10 @@
             this.label8.TabIndex = 9;
             this.label8.Text = "All used images are downloaded from";
             // 
-            // listBox1
+            // InfoListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
+            this.InfoListBox.FormattingEnabled = true;
+            this.InfoListBox.Items.AddRange(new object[] {
             "Copyright (c) 2023 Minnebaev Artem",
             "",
             "Permission is hereby granted, free of charge, to any person obtaining a copy of t" +
@@ -123,21 +123,21 @@
             "OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ",
             "ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR ",
             "OTHER DEALINGS IN THE SOFTWARE. "});
-            this.listBox1.Location = new System.Drawing.Point(8, 153);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(529, 199);
-            this.listBox1.TabIndex = 8;
+            this.InfoListBox.Location = new System.Drawing.Point(8, 153);
+            this.InfoListBox.Name = "InfoListBox";
+            this.InfoListBox.Size = new System.Drawing.Size(529, 199);
+            this.InfoListBox.TabIndex = 8;
             // 
-            // linkLabel1
+            // GitLinkLabel
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(117, 116);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(136, 13);
-            this.linkLabel1.TabIndex = 7;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "https://github.com/tellaryt2";
-            this.linkLabel1.Click += new System.EventHandler(this.linkLabel1_Click);
+            this.GitLinkLabel.AutoSize = true;
+            this.GitLinkLabel.Location = new System.Drawing.Point(117, 116);
+            this.GitLinkLabel.Name = "GitLinkLabel";
+            this.GitLinkLabel.Size = new System.Drawing.Size(136, 13);
+            this.GitLinkLabel.TabIndex = 7;
+            this.GitLinkLabel.TabStop = true;
+            this.GitLinkLabel.Text = "https://github.com/tellaryt2";
+            this.GitLinkLabel.Click += new System.EventHandler(this.GitLinkLabel_Click);
             // 
             // label7
             // 
@@ -236,17 +236,19 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel GitLinkLabel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.ListBox InfoListBox;
+        private System.Windows.Forms.LinkLabel IconsLinkLabel;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button OKButton;
+
+       
     }
 }
