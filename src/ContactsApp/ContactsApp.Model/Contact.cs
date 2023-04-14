@@ -8,67 +8,160 @@ namespace ContactsApp.Model
 {
     internal class Contact
     {
+        /// <summary>
+        /// Максимальная длина строки для ввода текста
+        /// </summary>
+        private const int _maxTextLength = 100;
+
+        /// <summary>
+        /// Максимальная длина строки для ввода текста ID вконтакте
+        /// </summary>
+        private const int _maxTextIdLength = 50;
+
+        /// <summary>
+        /// Имя и фамилия
+        /// </summary>
         private string _fullName;
+
+        /// <summary>
+        /// почта email
+        /// </summary>
         private string _email;
+
+        /// <summary>
+        /// телефонный номер
+        /// </summary>
         private string _phoneNumber;
-        private string _dateBirth;
+
+        /// <summary>
+        /// дата рождения
+        /// </summary>
+        private DateTime _dateOfBirth;
+
+        /// <summary>
+        /// ID вконтакте
+        /// </summary>
         private string _idVk;
 
-        private Contact()
+        /// <summary>
+        /// Конструктор класса Contact
+        /// </summary>
+        private Contact(string fullName, string email, string phoneNumber, DateTime dateOfBirth, string idVk)
         {
-            _fullName = "";
-            _email = "";
-            _phoneNumber = "";
-            _dateBirth = "";
-            _idVk = "";
+            FullName = fullName;
+            Email = email;
+            PhoneNumber = phoneNumber;
+            DateOfBirth = dateOfBirth;
+            IdVk = idVk;
         }
 
-        private void SetFullName(string fullName)
+        /// <summary>
+        /// Имя и Фамилия
+        /// </summary>
+        public string FullName
         {
-            _fullName = fullName;
+            get { return _fullName; }
+            set
+            {
+                if (value.Length <= 0)
+                {
+                    throw new ArgumentException($"You entered an empty string.");
+                }
+                if (value.Length > _maxTextLength)
+                {
+                    throw new ArgumentException($"The string title must be less than {_maxTextLength} characters.");
+                }
+                _fullName = value.Substring(0, Math.Min(value.Length, 100));
+                string[] fullName = _fullName.Split(' ');
+                _fullName = char.ToUpper(fullName[0][0]) + fullName[0].Substring(1)
+                    + ' ' + char.ToUpper(fullName[1][0]) + fullName[1].Substring(1);
+            }
         }
 
-        private void SetEmail(string email)
+        /// <summary>
+        /// почта email
+        /// </summary>
+        public string Email
         {
-            _email = email;
+            get { return _email; }
+            set 
+            {
+                if (value.Length <= 0)
+                {
+                    throw new ArgumentException($"You entered an empty string.");
+                }
+                if (value.Length > _maxTextLength)
+                {
+                    throw new ArgumentException($"The string title must be less than {_maxTextLength} characters.");
+                }
+                _email = value; 
+            }
         }
 
-        private void SetPhoneNumber(string phoneNumber)
+        /// <summary>
+        /// Номер телефона
+        /// </summary>
+        public string PhoneNumber
         {
-            _phoneNumber = phoneNumber;
+            get { return _phoneNumber; }
+            set 
+            {
+                foreach (char c in value)
+                {
+                    if (!char.IsDigit(c) && c != '+' && c != '(' && c != ')' && c != '-' && c != ' ')
+                        throw new ArgumentException("Invalid character in phone number.");
+                }
+                
+                _phoneNumber = value; 
+            }
         }
 
-        private void SetDateBirth(string dateBirth)
+        /// <summary>
+        /// Дата рождения
+        /// </summary>
+        public DateTime DateOfBirth
         {
-            _dateBirth = dateBirth;
+            get { return _dateOfBirth; }
+            set
+            { 
+                if ((value > new DateTime(1900, 1, 1)) && (value < DateTime.Now))
+                {
+                    _dateOfBirth = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Invalid date of birth.");
+                }
+            }
         }
 
-        private void SetIdVk(string idVk)
+        /// <summary>
+        /// Id вконтакте
+        /// </summary>
+        public string IdVk
         {
-            _idVk = idVk;
+            get { return _idVk; }
+            set 
+            {
+                if (value.Length <= 0)
+                {
+                    throw new ArgumentException($"You entered an empty string.");
+                }
+                if (value.Length > _maxTextIdLength)
+                {
+                    throw new ArgumentException($"The string title must be less than {_maxTextIdLength} characters.");
+                }
+                _idVk = value; 
+            }
         }
 
-        private string GetFullName()
+        /// <summary>
+        /// Интерфейс для клонирования контактов
+        /// </summary>
+        /// <returns></returns>
+        public object ICloneable()
         {
-            return _fullName;
-        }
-
-        private string GetEmail()
-        {
-            return _email;
-        }
-        private string GetPhoneNumber()
-        {
-            return _phoneNumber;
-        }
-        private string GetDateBirth()
-        {
-            return _dateBirth;
-        }
-
-        private string GetIdVk()
-        {
-            return _idVk;
+            return new Contact(_fullName, _email, _phoneNumber, _dateOfBirth, _idVk);
         }
     }
 }
