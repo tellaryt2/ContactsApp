@@ -246,7 +246,7 @@
         private System.Windows.Forms.Label EmailLabel;
         private System.Windows.Forms.TextBox FullNameTextBox;
         private System.Windows.Forms.Label FullNameLabel;
-        private System.Windows.Forms.Button CancelButton;
+        new private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button OKButton;
         private System.Windows.Forms.Panel FooterPanel;
         private System.Windows.Forms.DateTimePicker DateTimePicker;
