@@ -21,7 +21,7 @@ namespace ContactsApp.Model
             get { return _contacts; }
             set 
             { 
-                _contacts = SortContacts(value); 
+                _contacts = value; 
             }
         }
 
@@ -29,7 +29,7 @@ namespace ContactsApp.Model
         /// констуктор класса Contact
         /// </summary>
         /// <param name="contacts"></param>
-        Project(List<Contact> contacts)
+        public Project(List<Contact> contacts)
         {
             this.Contacts = contacts;
         }
@@ -38,13 +38,9 @@ namespace ContactsApp.Model
         /// Поиск контакта по дню рождения
         /// </summary>
         /// <returns></returns>
-        public List<Contact> FindBirthdayContact()
+        public List<Contact> FindBirthdayContact(DateTime date)
         {
-
-            List<Contact> birthdayContact;
-            DateTime today = DateTime.Today;
-            birthdayContact = Contacts.FindAll(contact => contact.DateOfBirth.Date == today);
-            return birthdayContact;
+            return _contacts.Where(c => c.DateOfBirth.Day == date.Day && c.DateOfBirth.Month == date.Month).ToList();
         }
 
         /// <summary>

@@ -14,6 +14,7 @@ namespace ContactsApp.Model
         /// Путь к папке сохранения
         /// </summary>
         private const string FILE_PATH = @"C:\Users\minne\AppData\Roaming\ContactsApp\ContactsApp.notes";
+  
         
         /// <summary>
         /// Сохранение данных
