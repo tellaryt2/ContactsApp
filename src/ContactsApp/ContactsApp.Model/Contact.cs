@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContactsApp.Model
 {
-    internal class Contact
+    internal class Contact : ICloneable
     {
         /// <summary>
         /// Максимальная длина строки для ввода текста
@@ -159,7 +159,7 @@ namespace ContactsApp.Model
         /// Интерфейс для клонирования контактов
         /// </summary>
         /// <returns></returns>
-        public object ICloneable()
+        public object Clone()
         {
             return new Contact(_fullName, _email, _phoneNumber, _dateOfBirth, _idVk);
         }
