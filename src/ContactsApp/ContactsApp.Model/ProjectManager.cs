@@ -8,13 +8,20 @@ using System.IO;
 
 namespace ContactsApp.Model
 {
+    /// <summary>
+    /// Класс ProjectManager для реализации сохранения/загрузки файлов
+    /// </summary>
     internal class ProjectManager
     {
         /// <summary>
+        /// Путь к AppData
+        /// </summary>
+        private static string _appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
+        /// <summary>
         /// Путь к папке сохранения
         /// </summary>
-        private const string FILE_PATH = @"C:\Users\minne\AppData\Roaming\ContactsApp\ContactsApp.notes";
-  
+        private static string _path = $@"{_appData}\Minnebaev\ContactsApp\data.json";
         
         /// <summary>
         /// Сохранение данных
@@ -22,11 +29,11 @@ namespace ContactsApp.Model
         /// <param name="project"></param>
         public void SaveProject(Project project)
         {
-            string jsonData = JsonConvert.SerializeObject(project);
-            using (StreamWriter writer = new StreamWriter(FILE_PATH))
+            if(!Directory.Exists(_path))
             {
-                writer.Write(jsonData);
+                Directory.CreateDirectory(_path);
             }
+            File.WriteAllText(_path, JsonConvert.SerializeObject(project));
         }
 
         /// <summary>
@@ -35,16 +42,23 @@ namespace ContactsApp.Model
         /// <returns></returns>
         public Project LoadProject()
         {
-            Project project;
-
-            using (StreamReader reader = new StreamReader(FILE_PATH))
+            try
             {
-                string jsonData = reader.ReadToEnd();
+                Project project;
 
-                project = JsonConvert.DeserializeObject<Project>(jsonData);
+                using (StreamReader reader = new StreamReader(_path))
+                {
+                    string jsonData = reader.ReadToEnd();
+
+                    project = JsonConvert.DeserializeObject<Project>(jsonData);
+                }
+
+                return project;
             }
-
-            return project;
+            catch
+            {
+                return null;
+            }
         }
     }
 }

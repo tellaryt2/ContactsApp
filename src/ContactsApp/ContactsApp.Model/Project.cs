@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ContactsApp.Model
 {
+    /// <summary>
+    /// Класс Project содержащий список контактов
+    /// </summary>
     internal class Project
     {
         /// <summary>
@@ -40,7 +43,8 @@ namespace ContactsApp.Model
         /// <returns></returns>
         public List<Contact> FindBirthdayContact(DateTime date)
         {
-            return _contacts.Where(c => c.DateOfBirth.Day == date.Day && c.DateOfBirth.Month == date.Month).ToList();
+            return _contacts.Where(c => c.DateOfBirth.Day == date.Day 
+            && c.DateOfBirth.Month == date.Month).ToList();
         }
 
         /// <summary>
@@ -48,13 +52,14 @@ namespace ContactsApp.Model
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
-        public List<Contact> SearchContacts(string query)
+        public List<Contact> SearchContacts(string searchText)
         {
+            var options = StringComparison.OrdinalIgnoreCase;
             return _contacts.Where(c =>
-                c.FullName.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0 ||
-                c.Email.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0 ||
-                c.PhoneNumber.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0 ||
-                c.IdVk.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                c.FullName.Contains(searchText) ||
+                c.Email.Contains(searchText) ||
+                c.PhoneNumber.Contains(searchText) ||
+                c.IdVk.IndexOf(searchText, options) >= 0).ToList();
         }
 
         /// <summary>

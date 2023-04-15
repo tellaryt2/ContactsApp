@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace ContactsApp.Model
 {
+    /// <summary>
+    /// Класс Contact
+    /// </summary>
     internal class Contact : ICloneable
     {
         /// <summary>
@@ -44,8 +49,13 @@ namespace ContactsApp.Model
         private string _idVk;
 
         /// <summary>
-        /// Конструктор класса Contact
+        /// Констурктор класса Contact
         /// </summary>
+        /// <param name="fullName"></param>
+        /// <param name="email"></param>
+        /// <param name="phoneNumber"></param>
+        /// <param name="dateOfBirth"></param>
+        /// <param name="idVk"></param>
         private Contact(string fullName, string email, string phoneNumber, DateTime dateOfBirth, string idVk)
         {
             FullName = fullName;
@@ -56,7 +66,7 @@ namespace ContactsApp.Model
         }
 
         /// <summary>
-        /// Имя и Фамилия
+        /// возвращает и задает полное имя контакта
         /// </summary>
         public string FullName
         {
@@ -65,21 +75,24 @@ namespace ContactsApp.Model
             {
                 if (value.Length <= 0)
                 {
-                    throw new ArgumentException($"You entered an empty string.");
+                    throw new ArgumentException($"You entered an empty full name.");
                 }
                 if (value.Length > _maxTextLength)
                 {
-                    throw new ArgumentException($"The string title must be less than {_maxTextLength} characters.");
+                    throw new ArgumentException($"The full name text must be less than {_maxTextLength} characters.");
                 }
-                _fullName = value.Substring(0, Math.Min(value.Length, 100));
-                string[] fullName = _fullName.Split(' ');
-                _fullName = char.ToUpper(fullName[0][0]) + fullName[0].Substring(1)
-                    + ' ' + char.ToUpper(fullName[1][0]) + fullName[1].Substring(1);
+                string fullNameString = value;
+                string[] fullName = fullNameString.Split(' ');
+                foreach (string word in fullName)
+                {
+                    fullNameString += char.ToUpper(word[0]) + word.Substring(1) + ' ';
+                }
+                _fullName = fullNameString;
             }
         }
 
         /// <summary>
-        /// почта email
+        /// задает и возвращает почту email
         /// </summary>
         public string Email
         {
@@ -88,28 +101,32 @@ namespace ContactsApp.Model
             {
                 if (value.Length <= 0)
                 {
-                    throw new ArgumentException($"You entered an empty string.");
+                    throw new ArgumentException($"You entered an empty email.");
                 }
                 if (value.Length > _maxTextLength)
                 {
-                    throw new ArgumentException($"The string title must be less than {_maxTextLength} characters.");
+                    throw new ArgumentException($"The email must be less than {_maxTextLength} characters.");
                 }
                 _email = value; 
             }
         }
 
         /// <summary>
-        /// Номер телефона
+        /// Задает и возвращает номер телефона
         /// </summary>
         public string PhoneNumber
         {
             get { return _phoneNumber; }
             set 
             {
+                string symbol = "+-() ";
                 foreach (char c in value)
                 {
-                    if (!char.IsDigit(c) && c != '+' && c != '(' && c != ')' && c != '-' && c != ' ')
-                        throw new ArgumentException("Invalid character in phone number.");
+                    for (int i = 0; i < symbol.Length; i++)
+                    {
+                        if (!char.IsDigit(c) && c!= symbol[i])
+                            throw new ArgumentException("Invalid character in phone number.");
+                    }
                 }
                 
                 _phoneNumber = value; 
@@ -117,7 +134,7 @@ namespace ContactsApp.Model
         }
 
         /// <summary>
-        /// Дата рождения
+        /// Задает и возвращает дату рождения
         /// </summary>
         public DateTime DateOfBirth
         {
@@ -136,7 +153,7 @@ namespace ContactsApp.Model
         }
 
         /// <summary>
-        /// Id вконтакте
+        /// Задает и возвращает Id вконтакте
         /// </summary>
         public string IdVk
         {
@@ -145,11 +162,11 @@ namespace ContactsApp.Model
             {
                 if (value.Length <= 0)
                 {
-                    throw new ArgumentException($"You entered an empty string.");
+                    throw new ArgumentException($"You entered an empty IdVk.");
                 }
                 if (value.Length > _maxTextIdLength)
                 {
-                    throw new ArgumentException($"The string title must be less than {_maxTextIdLength} characters.");
+                    throw new ArgumentException($"The {nameof(IdVk)} must be less than {_maxTextIdLength} characters.");
                 }
                 _idVk = value; 
             }
