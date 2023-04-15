@@ -8,8 +8,14 @@ namespace ContactsApp.Model
 {
     internal class Project
     {
+        /// <summary>
+        /// Контакты
+        /// </summary>
         private List<Contact> _contacts;
 
+        /// <summary>
+        /// Возвращает или задает контакты
+        /// </summary>
         public List<Contact> Contacts
         {
             get { return _contacts; }
@@ -19,11 +25,19 @@ namespace ContactsApp.Model
             }
         }
 
+        /// <summary>
+        /// констуктор класса Contact
+        /// </summary>
+        /// <param name="contacts"></param>
         Project(List<Contact> contacts)
         {
             this.Contacts = contacts;
         }
 
+        /// <summary>
+        /// Поиск контакта по дню рождения
+        /// </summary>
+        /// <returns></returns>
         public List<Contact> FindBirthdayContact()
         {
 
@@ -33,21 +47,30 @@ namespace ContactsApp.Model
             return birthdayContact;
         }
 
-        public List<Contact> FindContact(string temp)
+        /// <summary>
+        /// Поиск контаткт по подстроке
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
+        public List<Contact> SearchContacts(string query)
         {
-            return _contacts.FindAll(contact => (contact.FullName.IndexOf(temp) != -1) ||
-            (ToCapitalLettersStyle(contact.FullName).IndexOf(temp) != -1));
+            return _contacts.Where(c =>
+                c.FullName.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                c.Email.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                c.PhoneNumber.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                c.IdVk.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
         }
 
+        /// <summary>
+        /// Сортировка контакта
+        /// </summary>
+        /// <param name="contacts"></param>
+        /// <returns></returns>
         private List<Contact> SortContacts(List<Contact> contacts)
         {
             contacts.Sort((c1,c2) => c1.FullName.CompareTo(c2.FullName));
             return contacts;
         }
 
-        private string ToCapitalLettersStyle(string value)
-        {
-            return value;
-        }
     }
 }

@@ -10,8 +10,15 @@ namespace ContactsApp.Model
 {
     internal class ProjectManager
     {
+        /// <summary>
+        /// Путь к папке сохранения
+        /// </summary>
         private const string FILE_PATH = @"C:\Users\minne\AppData\Roaming\ContactsApp\ContactsApp.notes";
         
+        /// <summary>
+        /// Сохранение данных
+        /// </summary>
+        /// <param name="project"></param>
         public void SaveProject(Project project)
         {
             string jsonData = JsonConvert.SerializeObject(project);
@@ -21,6 +28,10 @@ namespace ContactsApp.Model
             }
         }
 
+        /// <summary>
+        /// Загрузка данных
+        /// </summary>
+        /// <returns></returns>
         public Project LoadProject()
         {
             Project project;
