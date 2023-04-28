@@ -130,6 +130,7 @@ namespace ContactsApp.Model
                 }
                 
                 _phoneNumber = value; 
+
             }
         }
 
