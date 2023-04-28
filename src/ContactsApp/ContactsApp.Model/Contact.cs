@@ -121,16 +121,8 @@ namespace ContactsApp.Model
             get { return _phoneNumber; }
             set 
             {
-                string symbol = "+-() ";
-                foreach (char c in value)
-                {
-                    for (int i = 0; i < symbol.Length; i++)
-                    {
-                        if (!char.IsDigit(c) && c!= symbol[i])
-                            throw new ArgumentException("Invalid character in phone number.");
-                    }
-                }
-                _phoneNumber = value; 
+                const string allowedChars = "1234567890+()- ";
+                _phoneNumber =  new string(value.Where(character => allowedChars.Contains(character)).ToArray());
             }
         }
 
