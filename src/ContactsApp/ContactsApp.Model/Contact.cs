@@ -11,7 +11,7 @@ namespace ContactsApp.Model
     /// <summary>
     /// Класс Contact
     /// </summary>
-    internal class Contact : ICloneable
+    public class Contact : ICloneable
     {
         /// <summary>
         /// Максимальная длина строки для ввода текста
@@ -56,7 +56,7 @@ namespace ContactsApp.Model
         /// <param name="phoneNumber"></param>
         /// <param name="dateOfBirth"></param>
         /// <param name="idVk"></param>
-        private Contact(string fullName, string email, string phoneNumber, DateTime dateOfBirth, string idVk)
+        public Contact(string fullName, string email, string phoneNumber, DateTime dateOfBirth, string idVk)
         {
             FullName = fullName;
             Email = email;
@@ -64,6 +64,7 @@ namespace ContactsApp.Model
             DateOfBirth = dateOfBirth;
             IdVk = idVk;
         }
+
 
         /// <summary>
         /// возвращает и задает полное имя контакта
@@ -81,13 +82,14 @@ namespace ContactsApp.Model
                 {
                     throw new ArgumentException($"The full name text must be less than {_maxTextLength} characters.");
                 }
+                string currentFullName = "";
                 string fullNameString = value;
                 string[] fullName = fullNameString.Split(' ');
                 foreach (string word in fullName)
                 {
-                    fullNameString += char.ToUpper(word[0]) + word.Substring(1) + ' ';
+                    currentFullName += char.ToUpper(word[0]) + word.Substring(1) + ' ';
                 }
-                _fullName = fullNameString;
+                _fullName = currentFullName;
             }
         }
 
@@ -128,9 +130,7 @@ namespace ContactsApp.Model
                             throw new ArgumentException("Invalid character in phone number.");
                     }
                 }
-                
                 _phoneNumber = value; 
-
             }
         }
 

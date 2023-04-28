@@ -9,7 +9,7 @@ namespace ContactsApp.Model
     /// <summary>
     /// Класс Project содержащий список контактов
     /// </summary>
-    internal class Project
+    public class Project
     {
         /// <summary>
         /// Контакты
@@ -22,10 +22,23 @@ namespace ContactsApp.Model
         public List<Contact> Contacts
         {
             get { return _contacts; }
-            set 
-            { 
-                _contacts = value; 
+            set
+            {
+                _contacts = value;
             }
+        }
+
+        public Project()
+        {
+            Contacts = new List<Contact>();
+        }
+
+        /// <summary>
+        /// Количество контактов
+        /// </summary>
+        public int ContactsCount
+        {
+            get { return _contacts.Count; }
         }
 
         /// <summary>

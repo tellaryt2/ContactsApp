@@ -7,15 +7,66 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ContactsApp.Model;
 
 namespace ContactsApp.View
 {
     public partial class MainForm : Form
     {
+        private Project _project = new Project();
+
         public MainForm()
         {
             InitializeComponent();
         }
+
+        private void UpdateListBox()
+        {
+            ContactsListBox.Items.Clear();
+
+            for (int i = 0; i < _project.ContactsCount; ++i)
+            {
+                ContactsListBox.Items.Add(_project.Contacts[i].FullName);
+            }
+        }
+
+        private void AddContact()
+        {
+            Random random = new Random();
+            string[] fullNames = { "John Smith", "Jane Bond", "Bob Ros", "Alice Wand", "Mike Takeover" };
+            string[] phoneNumbers = { "21324124", "214124124", "14124121", "4211242", "121245232" };
+            string[] emailDomains = { "gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "icloud.com" };
+            string[] idVk = { "2312314", "423423", "15235233", "312415", "34423243256" };
+            DateTime[] dateOfBirth = { DateTime.Today };
+
+            string randomFullName = fullNames[random.Next(fullNames.Length)];
+            string randomPhoneNumber = phoneNumbers[random.Next(phoneNumbers.Length)];
+            string randomEmail = emailDomains[random.Next(emailDomains.Length)];
+            string randomIdVk = idVk[random.Next(idVk.Length)];
+            DateTime randomOfBirth = dateOfBirth[random.Next(dateOfBirth.Length)];
+
+            Contact newContact = new Contact(randomFullName, randomEmail,randomPhoneNumber,
+                randomOfBirth, randomIdVk);
+
+            _project.Contacts.Add(newContact);
+            ContactsListBox.Items.Add(newContact.FullName);
+        }
+
+        private void RemoveContact(int index)
+        {
+ 
+            if (MessageBox.Show($"Do you really want to remove{index}?", "Attention", MessageBoxButtons.YesNo) 
+                == DialogResult.Yes)
+            {
+                if (index >= 0 && index < _project.ContactsCount)
+                {
+                    _project.Contacts.RemoveAt(index);
+                    //UpdateListBox();
+                }
+            }
+        }
+
+        //private void Select
 
         private void label7_Click(object sender, EventArgs e)
         {
@@ -109,8 +160,10 @@ namespace ContactsApp.View
 
         private void AddContactButton_Click_1(object sender, EventArgs e)
         {
-            var form = new ContactForm();
-            form.ShowDialog();
+            //var form = new ContactForm();
+            //form.ShowDialog();
+            UpdateListBox();
+            AddContact();
         }
 
         private void AddContactButton_MouseEnter(object sender, EventArgs e)
@@ -123,6 +176,12 @@ namespace ContactsApp.View
         {
             AddContactButton.Image = Properties.Resources.add_contact_32x32_gray;
             AddContactButton.BackColor = Color.White;
+        }
+
+        private void RemoveContactButton_Click(object sender, EventArgs e)
+        {
+            RemoveContact(ContactsListBox.SelectedIndex);
+            UpdateListBox();
         }
     }
 }
