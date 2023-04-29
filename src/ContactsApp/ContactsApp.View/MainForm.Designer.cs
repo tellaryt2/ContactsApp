@@ -39,6 +39,7 @@
             this.FindLabel = new System.Windows.Forms.Label();
             this.FindTextBox = new System.Windows.Forms.TextBox();
             this.InfoPanel = new System.Windows.Forms.Panel();
+            this.DateOfBirthTimePicker = new System.Windows.Forms.DateTimePicker();
             this.BirthdayPanel = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Button();
             this.NamesLabel = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.FullNameLabel = new System.Windows.Forms.Label();
             this.ProfilePictureBox = new System.Windows.Forms.PictureBox();
-            this.DateOfBirthTimePicker = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
             this.ListPanel.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -162,21 +162,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ContactsListBox.FormattingEnabled = true;
             this.ContactsListBox.IntegralHeight = false;
-            this.ContactsListBox.Items.AddRange(new object[] {
-            "Абраменков Дмитрий ",
-            "Абрамович Роман",
-            "Аверченко Владимир",
-            "Азарова Надежда",
-            "Аксаков Анатолий",
-            "Александров Алексей",
-            "Алексеев Алексей",
-            "Алкснис Виктор",
-            "Алтухов Василий",
-            "Алферов Жорес",
-            "Амиров Курбан-Али",
-            "Амирханов Алихан",
-            "Анненский Игорь",
-            "Анохин Павел"});
             this.ContactsListBox.Location = new System.Drawing.Point(3, 29);
             this.ContactsListBox.Name = "ContactsListBox";
             this.ContactsListBox.Size = new System.Drawing.Size(223, 359);
@@ -219,6 +204,13 @@
             this.InfoPanel.Size = new System.Drawing.Size(452, 426);
             this.InfoPanel.TabIndex = 1;
             // 
+            // DateOfBirthTimePicker
+            // 
+            this.DateOfBirthTimePicker.Location = new System.Drawing.Point(112, 172);
+            this.DateOfBirthTimePicker.Name = "DateOfBirthTimePicker";
+            this.DateOfBirthTimePicker.Size = new System.Drawing.Size(172, 20);
+            this.DateOfBirthTimePicker.TabIndex = 12;
+            // 
             // BirthdayPanel
             // 
             this.BirthdayPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -232,7 +224,6 @@
             this.BirthdayPanel.Name = "BirthdayPanel";
             this.BirthdayPanel.Size = new System.Drawing.Size(446, 70);
             this.BirthdayPanel.TabIndex = 11;
-            this.BirthdayPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // CloseButton
             // 
@@ -257,7 +248,6 @@
             this.NamesLabel.Size = new System.Drawing.Size(201, 13);
             this.NamesLabel.TabIndex = 14;
             this.NamesLabel.Text = "Абкаумов, Петров, Иванов и др.";
-            this.NamesLabel.Click += new System.EventHandler(this.label8_Click);
             // 
             // TodayLabel
             // 
@@ -269,7 +259,6 @@
             this.TodayLabel.Size = new System.Drawing.Size(124, 13);
             this.TodayLabel.TabIndex = 13;
             this.TodayLabel.Text = "Today is Birthday of:";
-            this.TodayLabel.Click += new System.EventHandler(this.label7_Click);
             // 
             // InfoPictureBox
             // 
@@ -379,14 +368,6 @@
             this.ProfilePictureBox.TabIndex = 0;
             this.ProfilePictureBox.TabStop = false;
             // 
-            // DateOfBirthTimePicker
-            // 
-            this.DateOfBirthTimePicker.Location = new System.Drawing.Point(112, 172);
-            this.DateOfBirthTimePicker.Name = "DateOfBirthTimePicker";
-            this.DateOfBirthTimePicker.Size = new System.Drawing.Size(172, 20);
-            this.DateOfBirthTimePicker.TabIndex = 12;
-           
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -395,7 +376,7 @@
             this.ClientSize = new System.Drawing.Size(693, 432);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "ContactsApp";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);

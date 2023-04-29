@@ -72,21 +72,15 @@ namespace ContactsApp.View
         /// <param name="index">Индекс удаляемого контакта</param>
         private void RemoveContact(int index)
         {
-            if (index != -1)
-            {
-                if (MessageBox.Show($"Do you really want to remove " +
-                        $"index {index}?", "Attention", MessageBoxButtons.YesNo)
-                        == DialogResult.Yes)
-                {
-                    if (index >= 0 && index < _project.ContactsCount)
-                    {
-                        _project.Contacts.RemoveAt(index);
-                    }
-                }
-            }
-            else
+            if (index == -1)
             {
                 return;
+            }
+            if (MessageBox.Show($"Do you really want to remove " +
+                        $"index {index}?", "Attention", MessageBoxButtons.YesNo)
+                        == DialogResult.Yes)
+            {
+                _project.Contacts.RemoveAt(index);
             }
         }
 
@@ -142,7 +136,6 @@ namespace ContactsApp.View
             UpdateListBox();
         }
 
-
         /// <summary>
         /// Функция проверки индекса контактов
         /// </summary>
@@ -171,20 +164,44 @@ namespace ContactsApp.View
                     "Attention", MessageBoxButtons.YesNo) != DialogResult.Yes;
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Открытие формы изменения окна
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditContactButton_Click(object sender, EventArgs e)
         {
-
+            var form = new ContactForm();
+            form.ShowDialog();
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Вызов формы при нажатии на клавишу
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="keyData"></param>
+        /// <returns></returns>
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
+            if (keyData == Keys.F1)
+            {
+                var form = new AboutForm();
+                form.ShowDialog();
+            }
 
+            return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
+        /// <summary>
+        /// Закрыть панель
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CloseButton_Click(object sender, EventArgs e)
         {
-
+            BirthdayPanel.Hide();
         }
+
          
         /// <summary>
         /// Изменение иконок при наведении мышью
@@ -249,16 +266,6 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Закрыть панель
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
-            BirthdayPanel.Hide();
-        }
-
-        /// <summary>
         /// Изменение иконок при наведении мыши
         /// </summary>
         /// <param name="sender"></param>
@@ -280,38 +287,10 @@ namespace ContactsApp.View
             EditContactButton.BackColor = Color.White;
         }
 
-        /// <summary>
-        /// Открытие формы изменения окна
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void EditContactButton_Click(object sender, EventArgs e)
-        {
-            var form = new ContactForm();
-            form.ShowDialog();
-        }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
         }
-
-        /// <summary>
-        /// Вызов формы при нажатии на клавишу
-        /// </summary>
-        /// <param name="msg"></param>
-        /// <param name="keyData"></param>
-        /// <returns></returns>
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == Keys.F1)
-            {
-                var form = new AboutForm();
-                form.ShowDialog();
-            }
-
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
-
 
         /// <summary>
         /// Изменение иконок при наведении мыши
