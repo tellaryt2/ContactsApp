@@ -380,7 +380,6 @@
             this.Name = "MainForm";
             this.Text = "ContactsApp";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ListPanel.ResumeLayout(false);
             this.ListPanel.PerformLayout();

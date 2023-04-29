@@ -77,7 +77,7 @@ namespace ContactsApp.View
                 return;
             }
             if (MessageBox.Show($"Do you really want to remove " +
-                        $"index {index}?", "Attention", MessageBoxButtons.YesNo)
+                        $"{ _project.Contacts[index].FullName}?", "Attention", MessageBoxButtons.YesNo)
                         == DialogResult.Yes)
             {
                 _project.Contacts.RemoveAt(index);
@@ -287,10 +287,6 @@ namespace ContactsApp.View
             EditContactButton.BackColor = Color.White;
         }
 
-
-        private void MainForm_KeyDown(object sender, KeyEventArgs e)
-        {
-        }
 
         /// <summary>
         /// Изменение иконок при наведении мыши
