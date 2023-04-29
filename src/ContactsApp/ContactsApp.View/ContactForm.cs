@@ -7,15 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ContactsApp.Model;
 
 namespace ContactsApp.View
 {
     public partial class ContactForm : Form
     {
+
+        private Contact contact;
+
         public ContactForm()
         {
             InitializeComponent();
-
+            contact.FullName = " ";
+            contact.PhoneNumber = " ";
+            contact.Email = " ";
+            contact.DateOfBirth = DateTime.Today;
+            contact.IdVk = " ";
         }
 
         private void AddPhotoButton_MouseEnter(object sender, EventArgs e)
