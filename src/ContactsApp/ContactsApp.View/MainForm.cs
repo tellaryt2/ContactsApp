@@ -57,10 +57,10 @@ namespace ContactsApp.View
             string randomPhoneNumber = phoneNumbers[random.Next(phoneNumbers.Length)];
             string randomEmail = emailDomains[random.Next(emailDomains.Length)];
             string randomIdVk = idVk[random.Next(idVk.Length)];
-            DateTime randomOfBirth = dateOfBirth[random.Next(dateOfBirth.Length)];
+            DateTime randomDateOfBirth = dateOfBirth[random.Next(dateOfBirth.Length)];
 
             Contact newContact = new Contact(randomFullName, randomEmail,randomPhoneNumber,
-                randomOfBirth, randomIdVk);
+                randomDateOfBirth, randomIdVk);
 
             _project.Contacts.Add(newContact);
             ContactsListBox.Items.Add(newContact.FullName);
@@ -75,8 +75,8 @@ namespace ContactsApp.View
             if (index != -1)
             {
                 if (MessageBox.Show($"Do you really want to remove " +
-               $"index {index}?", "Attention", MessageBoxButtons.YesNo)
-               == DialogResult.Yes)
+                        $"index {index}?", "Attention", MessageBoxButtons.YesNo)
+                        == DialogResult.Yes)
                 {
                     if (index >= 0 && index < _project.ContactsCount)
                     {
@@ -96,11 +96,12 @@ namespace ContactsApp.View
         /// <param name="index">Индекс контакта</param>
         private void UpdateSelectedContacts(int index)
         {
-            FullNameTextBox.Text = _project.Contacts[index].FullName;
-            EmailTextBox.Text = _project.Contacts[index].Email;
-            PhoneNumberTextBox.Text = _project.Contacts[index].PhoneNumber;
-            VkTextBox.Text = _project.Contacts[index].IdVk;
-            DateOfBirthTimePicker.Value = _project.Contacts[index].DateOfBirth;
+            var contact = _project.Contacts[index];
+            FullNameTextBox.Text = contact.FullName;
+            EmailTextBox.Text = contact.Email;
+            PhoneNumberTextBox.Text = contact.PhoneNumber;
+            VkTextBox.Text = contact.IdVk;
+            DateOfBirthTimePicker.Value = contact.DateOfBirth;
         }
 
         /// <summary>
@@ -114,6 +115,60 @@ namespace ContactsApp.View
 
             VkTextBox.Clear();
             DateOfBirthTimePicker.Value = new DateTime(1930, 1, 1);
+        }
+
+        /// <summary>
+        /// Вызов функции добавления при нажатии на кнопку
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddContactButton_Click_1(object sender, EventArgs e)
+        {
+            //var form = new ContactForm();
+            //form.ShowDialog();
+            UpdateListBox();
+            AddContact();
+        }
+
+        /// <summary>
+        /// Вызов функции удаления контакта при нажатии кнопки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RemoveContactButton_Click(object sender, EventArgs e)
+        {
+            RemoveContact(ContactsListBox.SelectedIndex);
+            ClearSelectedContacts();
+            UpdateListBox();
+        }
+
+
+        /// <summary>
+        /// Функция проверки индекса контактов
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ContactsListBox.SelectedIndex == -1)
+            {
+                ClearSelectedContacts();
+            }
+            else
+            {
+                UpdateSelectedContacts(ContactsListBox.SelectedIndex);
+            }
+        }
+
+        /// <summary>
+        /// Вызов предупреждающего окна при закрытии приложения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = MessageBox.Show("do you really want to close the program?",
+                    "Attention", MessageBoxButtons.YesNo) != DialogResult.Yes;
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -257,18 +312,6 @@ namespace ContactsApp.View
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        /// <summary>
-        /// Вызов функции добавления при нажатии на кнопку
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddContactButton_Click_1(object sender, EventArgs e)
-        {
-            //var form = new ContactForm();
-            //form.ShowDialog();
-            UpdateListBox();
-            AddContact();
-        }
 
         /// <summary>
         /// Изменение иконок при наведении мыши
@@ -292,44 +335,7 @@ namespace ContactsApp.View
             AddContactButton.BackColor = Color.White;
         }
 
-        /// <summary>
-        /// Вызов функции удаления контакта при нажатии кнопки
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void RemoveContactButton_Click(object sender, EventArgs e)
-        {
-            RemoveContact(ContactsListBox.SelectedIndex);
-            UpdateListBox();
-        }
 
-        /// <summary>
-        /// Функция проверки индекса контактов
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (ContactsListBox.SelectedIndex == -1)
-            {
-                ClearSelectedContacts();
-            }
-            else
-            {
-                UpdateSelectedContacts(ContactsListBox.SelectedIndex);
-            }
-        }
-
-        /// <summary>
-        /// Вызов предупреждающего окна при закрытии приложения
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            e.Cancel = MessageBox.Show("do you really want to close the program?",
-                    "Attention", MessageBoxButtons.YesNo) != DialogResult.Yes;
-        }
 
     }
 }
