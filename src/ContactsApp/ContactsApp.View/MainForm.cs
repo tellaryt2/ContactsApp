@@ -48,7 +48,8 @@ namespace ContactsApp.View
             string[] fullNames = { "John Smith", "Jane Bond", "Bob Ros", "Alice Wand", "Mike Takeover" };
             string[] phoneNumbers = { "+7(103)-211-22-11", "+7(112)-642-41-76",
                 "+7(325)-543-71-42", "+7(103)-444-34-98", "+7(333)-999-55-13" };
-            string[] emailDomains = { "gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "icloud.com" };
+            string[] emailDomains = { "qwer@gmail.com", "sadsda@mail.com", "vxcvxcv@hotmail.com",
+                "iyttseqwr@outlook.com", "sdasdasfaf@gmail.com" };
             string[] idVk = { "2312314", "423423", "15235233", "312415", "34423243256" };
             DateTime[] dateOfBirth = { DateTime.Today };
 
@@ -98,8 +99,8 @@ namespace ContactsApp.View
             FullNameTextBox.Text = _project.Contacts[index].FullName;
             EmailTextBox.Text = _project.Contacts[index].Email;
             PhoneNumberTextBox.Text = _project.Contacts[index].PhoneNumber;
-            //DateOfBirthTextBox.Text = _project.Contacts[index].DateOfBirth;
             VkTextBox.Text = _project.Contacts[index].IdVk;
+            DateOfBirthTimePicker.Value = _project.Contacts[index].DateOfBirth;
         }
 
         /// <summary>
@@ -110,8 +111,9 @@ namespace ContactsApp.View
             FullNameTextBox.Clear();
             EmailTextBox.Clear();
             PhoneNumberTextBox.Clear();
-            DateOfBirthTextBox.Clear();
+
             VkTextBox.Clear();
+            DateOfBirthTimePicker.Value = new DateTime(1930, 1, 1);
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -177,16 +179,6 @@ namespace ContactsApp.View
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void PhoneNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = true;
-        }
-
-        /// <summary>
-        /// Запрет на изменение поля
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void DateOfBirthTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }
@@ -338,5 +330,6 @@ namespace ContactsApp.View
             e.Cancel = MessageBox.Show("do you really want to close the program?",
                     "Attention", MessageBoxButtons.YesNo) != DialogResult.Yes;
         }
+
     }
 }
