@@ -112,7 +112,6 @@ namespace ContactsApp.View
             FullNameTextBox.Clear();
             EmailTextBox.Clear();
             PhoneNumberTextBox.Clear();
-
             VkTextBox.Clear();
             DateOfBirthTimePicker.Value = new DateTime(1930, 1, 1);
         }
@@ -124,6 +123,7 @@ namespace ContactsApp.View
         /// <param name="e"></param>
         private void AddContactButton_Click_1(object sender, EventArgs e)
         {
+            //расскомментировать когда будут связаны формы
             //var form = new ContactForm();
             //form.ShowDialog();
             UpdateListBox();
