@@ -310,7 +310,5 @@ namespace ContactsApp.View
             AddContactButton.BackColor = Color.White;
         }
 
-
-
     }
 }

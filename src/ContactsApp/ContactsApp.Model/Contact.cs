@@ -65,7 +65,6 @@ namespace ContactsApp.Model
             IdVk = idVk;
         }
 
-
         /// <summary>
         /// возвращает и задает полное имя контакта
         /// </summary>
@@ -82,14 +81,20 @@ namespace ContactsApp.Model
                 {
                     throw new ArgumentException($"The full name text must be less than {_maxTextLength} characters.");
                 }
-                string currentFullName = "";
-                string fullNameString = value;
-                string[] fullName = fullNameString.Split(' ');
-                foreach (string word in fullName)
+                if (value[value.Length - 1] == ' ')
                 {
-                    currentFullName += char.ToUpper(word[0]) + word.Substring(1) + ' ';
+                    value = value.Remove(value.Length - 1);
                 }
-                _fullName = currentFullName;
+                string fullNameString = value;
+                string[] words = fullNameString.Split(' ');
+
+                for (int i = 0; i < words.Length; i++)
+                {
+                    var oneWord = words[i];
+                    words[i] = oneWord.Substring(0, 1).ToUpper() + oneWord.Substring(1);
+                }
+
+                _fullName = String.Join(" ", words);
             }
         }
 
@@ -121,7 +126,27 @@ namespace ContactsApp.Model
             get { return _phoneNumber; }
             set 
             {
+                if (value.Length <= 0)
+                {
+                    throw new ArgumentException($"You entered an empty phone number.");
+                }
                 const string allowedChars = "1234567890+()- ";
+                for (int i = 0; i < value.Length; i++)
+                {
+                    for (int j = 0; j < allowedChars.Length; j++)
+                    {
+                        if (value[i] != allowedChars[j])
+                        {
+                            if (j == allowedChars.Length - 1)
+                            {
+                                throw new ArgumentException($"you entered the wrong " +
+                                    $"character in the phone number.");
+                            }
+                        }
+                        else
+                            break;
+                    }
+                }
                 _phoneNumber =  new string(value.Where(character => allowedChars.Contains(character)).ToArray());
             }
         }

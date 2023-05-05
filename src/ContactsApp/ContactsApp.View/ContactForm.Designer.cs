@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.AddPhotoButton = new System.Windows.Forms.PictureBox();
             this.VkTextBox = new System.Windows.Forms.TextBox();
             this.VKLabel = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.CancelButton = new System.Windows.Forms.Button();
             this.OKButton = new System.Windows.Forms.Button();
             this.FooterPanel = new System.Windows.Forms.Panel();
-            this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AddPhotoButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContactPictureBox)).BeginInit();
@@ -69,6 +69,14 @@
             this.MainPanel.Size = new System.Drawing.Size(490, 357);
             this.MainPanel.TabIndex = 0;
             // 
+            // DateTimePicker
+            // 
+            this.DateTimePicker.Location = new System.Drawing.Point(109, 175);
+            this.DateTimePicker.Name = "DateTimePicker";
+            this.DateTimePicker.Size = new System.Drawing.Size(209, 20);
+            this.DateTimePicker.TabIndex = 22;
+            this.DateTimePicker.ValueChanged += new System.EventHandler(this.DateTimePicker_ValueChanged);
+            // 
             // AddPhotoButton
             // 
             this.AddPhotoButton.Image = global::ContactsApp.View.Properties.Resources.add_photo_32x32_gray;
@@ -87,6 +95,7 @@
             this.VkTextBox.Name = "VkTextBox";
             this.VkTextBox.Size = new System.Drawing.Size(209, 20);
             this.VkTextBox.TabIndex = 20;
+            this.VkTextBox.TextChanged += new System.EventHandler(this.VkTextBox_TextChanged);
             // 
             // VKLabel
             // 
@@ -114,7 +123,7 @@
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(209, 20);
             this.PhoneNumberTextBox.TabIndex = 16;
-            this.PhoneNumberTextBox.Text = "+7 (323) 123-22-11";
+            this.PhoneNumberTextBox.TextChanged += new System.EventHandler(this.PhoneNumberTextBox_TextChanged);
             // 
             // PhoneNumberLabel
             // 
@@ -134,7 +143,7 @@
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(377, 20);
             this.EmailTextBox.TabIndex = 14;
-            this.EmailTextBox.Text = "abakumov@gmail.com";
+            this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
             // 
             // EmailLabel
             // 
@@ -154,7 +163,7 @@
             this.FullNameTextBox.Name = "FullNameTextBox";
             this.FullNameTextBox.Size = new System.Drawing.Size(378, 20);
             this.FullNameTextBox.TabIndex = 12;
-            this.FullNameTextBox.Text = "Абакумов Дмитрий Николаевич";
+            this.FullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
             // 
             // FullNameLabel
             // 
@@ -204,13 +213,6 @@
             this.FooterPanel.Name = "FooterPanel";
             this.FooterPanel.Size = new System.Drawing.Size(514, 49);
             this.FooterPanel.TabIndex = 24;
-            // 
-            // DateTimePicker
-            // 
-            this.DateTimePicker.Location = new System.Drawing.Point(109, 175);
-            this.DateTimePicker.Name = "DateTimePicker";
-            this.DateTimePicker.Size = new System.Drawing.Size(209, 20);
-            this.DateTimePicker.TabIndex = 22;
             // 
             // ContactForm
             // 
