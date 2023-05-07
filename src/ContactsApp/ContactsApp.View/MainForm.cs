@@ -186,6 +186,20 @@ namespace ContactsApp.View
         }
 
         /// <summary>
+        /// Открытие формы изменения окна
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditContactButton_Click(object sender, EventArgs e)
+        {
+            if (ContactsListBox.SelectedIndex != -1)
+            {
+                EditContact(ContactsListBox.SelectedIndex);
+                UpdateListBox();
+            }
+        }
+
+        /// <summary>
         /// Вызов предупреждающего окна при закрытии приложения
         /// </summary>
         /// <param name="sender"></param>
@@ -194,19 +208,6 @@ namespace ContactsApp.View
         {
             e.Cancel = MessageBox.Show("do you really want to close the program?",
                     "Attention", MessageBoxButtons.YesNo) != DialogResult.Yes;
-        }
-
-        /// <summary>
-        /// Открытие формы изменения окна
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void EditContactButton_Click(object sender, EventArgs e)
-        {
-            /*var form = new ContactForm();
-            form.ShowDialog();*/
-            EditContact(ContactsListBox.SelectedIndex);
-            UpdateListBox();
         }
 
         /// <summary>
