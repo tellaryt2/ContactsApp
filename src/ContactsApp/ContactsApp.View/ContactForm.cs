@@ -13,16 +13,40 @@ namespace ContactsApp.View
 {
     public partial class ContactForm : Form
     {
-
+        /// <summary>
+        /// Объект класса Contact
+        /// </summary>
         private Contact _contact = new Contact("John Smith", "qwer@gmail.com", "+7(103)-211-22-11",
             DateTime.Today, "2312314");
 
+        /// <summary>
+        /// Строка содержащая текст ошибки для полного имени
+        /// </summary>
         private string fullNameError = "";
+
+        /// <summary>
+        /// Строка содержащая текст ошибки для Email
+        /// </summary>
         private string emailError = "";
+
+        /// <summary>
+        /// Строка содержащая текст ошибки для телефонного номера
+        /// </summary>
         private string phoneNumberError = "";
+
+        /// <summary>
+        /// Строка содержащая текст ошибки для Id вконтакте
+        /// </summary>
         private string idVkError = "";
+
+        /// <summary>
+        /// Строка содержащая текст ошибки для даты рождения
+        /// </summary>
         private string dateOfBirthError = "";
 
+        /// <summary>
+        /// Конструктор формы по умолчанию
+        /// </summary>
         public ContactForm()
         {
             InitializeComponent();
@@ -34,6 +58,9 @@ namespace ContactsApp.View
             UpdateForm();
         }
 
+        /// <summary>
+        /// Обновление полей формы
+        /// </summary>
         void UpdateForm()
         {
             FullNameTextBox.Text = _contact.FullName;
@@ -43,6 +70,11 @@ namespace ContactsApp.View
             DateTimePicker.Value = _contact.DateOfBirth;
         }
 
+        /// <summary>
+        /// Редактирование поля для полного имени
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -58,6 +90,11 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Редактирование поля для Email
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EmailTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -73,6 +110,11 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Редактирование поля для телефонного номера
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PhoneNumberTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -88,6 +130,11 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Редактирование поля для Id вконтакте
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void VkTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -103,6 +150,11 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Редактирование поля для даты рождения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             try
@@ -118,6 +170,10 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Проверка для текста ошибок
+        /// </summary>
+        /// <returns></returns>
         private bool CheckFormOnErrors()
         {
             string fullStringError = ""; 
@@ -154,6 +210,9 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Обновить объект класса Contact актуальными данными
+        /// </summary>
         private void UpdateContact()
         {
             FullNameTextBox.Text = _contact.FullName;
@@ -163,6 +222,11 @@ namespace ContactsApp.View
             DateTimePicker.Value = _contact.DateOfBirth;
         }
 
+        /// <summary>
+        /// Реализация кнопки OK для подтверждения изменений
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OKButton_Click(object sender, EventArgs e)
         {
             if (CheckFormOnErrors())
@@ -171,17 +235,32 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Реализация кнопки Cancel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Изменение иконок при наведении мыши
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddPhotoButton_MouseEnter(object sender, EventArgs e)
         {
             AddPhotoButton.Image = Properties.Resources.add_photo_32x32;
             AddPhotoButton.BackColor = ColorTranslator.FromHtml("#F5F5FF");
         }
 
+        /// <summary>
+        /// Изменение иконок при отвода мыши
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddPhotoButton_MouseLeave(object sender, EventArgs e)
         {
             AddPhotoButton.Image = Properties.Resources.add_photo_32x32_gray;
