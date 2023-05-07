@@ -40,9 +40,9 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Добавить новый контакт
+        /// Добавить новый рандомный контакт
         /// </summary>
-        private void AddContact()
+        private void AddContactRandom()
         {
             Random random = new Random();
             string[] fullNames = { "John Smith", "Jane Bond", "Bob Ros", "Alice Wand", "Mike Takeover" };
@@ -64,6 +64,41 @@ namespace ContactsApp.View
 
             _project.Contacts.Add(newContact);
             ContactsListBox.Items.Add(newContact.FullName);
+        }
+
+        /// <summary>
+        /// Добавить новый контакт
+        /// </summary>
+        private void AddContact()
+        {
+            var addForm = new ContactForm();
+            DialogResult result = addForm.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                var newContact = addForm.Contact;
+                _project.Contacts.Add(newContact);
+                ContactsListBox.Items.Add(newContact.FullName);
+            }
+        }
+
+        /// <summary>
+        /// Редактировать выбранный контакт
+        /// </summary>
+        /// <param name="index">Индекс выбранного контакта</param>
+        private void EditContact(int index)
+        {   
+            var editForm = new ContactForm();
+            var newContact = _project.Contacts[ContactsListBox.SelectedIndex].Clone();
+            editForm.Contact = (Contact)newContact;
+            DialogResult result = editForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                ContactsListBox.Items.RemoveAt(index);
+                _project.Contacts.RemoveAt(index);
+                _project.Contacts.Insert(index, (Contact)newContact);
+                ContactsListBox.Items.Insert(index, newContact);
+            }
         }
 
         /// <summary>
@@ -117,9 +152,6 @@ namespace ContactsApp.View
         /// <param name="e"></param>
         private void AddContactButton_Click_1(object sender, EventArgs e)
         {
-            //расскомментировать когда будут связаны формы
-            //var form = new ContactForm();
-            //form.ShowDialog();
             UpdateListBox();
             AddContact();
         }
@@ -171,8 +203,10 @@ namespace ContactsApp.View
         /// <param name="e"></param>
         private void EditContactButton_Click(object sender, EventArgs e)
         {
-            var form = new ContactForm();
-            form.ShowDialog();
+            /*var form = new ContactForm();
+            form.ShowDialog();*/
+            EditContact(ContactsListBox.SelectedIndex);
+            UpdateListBox();
         }
 
         /// <summary>

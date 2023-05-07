@@ -45,16 +45,31 @@ namespace ContactsApp.View
         private string dateOfBirthError = "";
 
         /// <summary>
+        /// Возвращает и задает контакт
+        /// </summary>
+        public Contact Contact
+        {
+            get { return _contact; }
+            set
+            {
+                _contact = value;
+                if (_contact != null)
+                {
+                    FullNameTextBox.Text = _contact.FullName;
+                    PhoneNumberTextBox.Text = _contact.PhoneNumber;
+                    EmailTextBox.Text = _contact.Email;
+                    VkTextBox.Text = _contact.IdVk;
+                    DateTimePicker.Value = _contact.DateOfBirth;
+                }
+            }
+        }
+
+        /// <summary>
         /// Конструктор формы по умолчанию
         /// </summary>
         public ContactForm()
         {
             InitializeComponent();
-            _contact.FullName = "john skoth";
-            _contact.PhoneNumber = "+7(103)-211-22-22";
-            _contact.Email = "sadsaffa@gmail.com";
-            _contact.DateOfBirth = DateTime.Today;
-            _contact.IdVk = "6567563";
             UpdateForm();
         }
 
@@ -215,11 +230,11 @@ namespace ContactsApp.View
         /// </summary>
         private void UpdateContact()
         {
-            FullNameTextBox.Text = _contact.FullName;
-            PhoneNumberTextBox.Text = _contact.PhoneNumber;
-            EmailTextBox.Text = _contact.Email;
-            VkTextBox.Text = _contact.IdVk;
-            DateTimePicker.Value = _contact.DateOfBirth;
+            _contact.FullName = FullNameTextBox.Text;
+            _contact.PhoneNumber = PhoneNumberTextBox.Text;
+            _contact.Email = EmailTextBox.Text;
+            _contact.IdVk = VkTextBox.Text;
+            _contact.DateOfBirth = DateTimePicker.Value;
         }
 
         /// <summary>
@@ -231,6 +246,7 @@ namespace ContactsApp.View
         {
             if (CheckFormOnErrors())
             {
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
         }
@@ -242,6 +258,9 @@ namespace ContactsApp.View
         /// <param name="e"></param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
+            _contact = null;
+
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
@@ -266,7 +285,5 @@ namespace ContactsApp.View
             AddPhotoButton.Image = Properties.Resources.add_photo_32x32_gray;
             AddPhotoButton.BackColor = Color.White;
         }
-
-
     }
 }
