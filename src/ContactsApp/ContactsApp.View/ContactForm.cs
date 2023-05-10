@@ -70,19 +70,11 @@ namespace ContactsApp.View
         public ContactForm()
         {
             InitializeComponent();
-            UpdateForm();
-        }
-
-        /// <summary>
-        /// Обновление полей формы
-        /// </summary>
-        void UpdateForm()
-        {
-            FullNameTextBox.Text = _contact.FullName;
-            PhoneNumberTextBox.Text = _contact.PhoneNumber;
-            EmailTextBox.Text = _contact.Email;
-            VkTextBox.Text = _contact.IdVk;
-            DateTimePicker.Value = _contact.DateOfBirth;
+            CheckСorrectnessFullName();
+            CheckСorrectnessEmail();
+            CheckСorrectnessPhoneNumber();
+            CheckСorrectnessIdVk();
+            CheckСorrectnessDateOfBirth();
         }
 
         /// <summary>
@@ -91,6 +83,14 @@ namespace ContactsApp.View
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            CheckСorrectnessFullName();
+        }
+
+        /// <summary>
+        /// Проверка на правильность введенного полного имени
+        /// </summary>
+        private void CheckСorrectnessFullName()
         {
             try
             {
@@ -112,6 +112,14 @@ namespace ContactsApp.View
         /// <param name="e"></param>
         private void EmailTextBox_TextChanged(object sender, EventArgs e)
         {
+            CheckСorrectnessEmail();
+        }
+
+        /// <summary>
+        /// Проверка на правильность введенного Email
+        /// </summary>
+        private void CheckСorrectnessEmail()
+        {
             try
             {
                 EmailTextBox.BackColor = Color.White;
@@ -131,6 +139,14 @@ namespace ContactsApp.View
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void PhoneNumberTextBox_TextChanged(object sender, EventArgs e)
+        {
+            CheckСorrectnessPhoneNumber();
+        }
+
+        /// <summary>
+        /// Проверка на правильность введенного номера телефона
+        /// </summary>
+        private void CheckСorrectnessPhoneNumber()
         {
             try
             {
@@ -152,6 +168,14 @@ namespace ContactsApp.View
         /// <param name="e"></param>
         private void VkTextBox_TextChanged(object sender, EventArgs e)
         {
+            CheckСorrectnessIdVk();
+        }
+
+        /// <summary>
+        /// Проверка на правильность введенного Id вконтакте
+        /// </summary>
+        private void CheckСorrectnessIdVk()
+        {
             try
             {
                 VkTextBox.BackColor = Color.White;
@@ -171,6 +195,14 @@ namespace ContactsApp.View
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void DateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            CheckСorrectnessDateOfBirth();
+        }
+
+        /// <summary>
+        /// Проверка на правильность введенной даты рождения
+        /// </summary>
+        private void CheckСorrectnessDateOfBirth()
         {
             try
             {
