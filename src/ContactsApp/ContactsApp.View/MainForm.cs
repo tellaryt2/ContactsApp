@@ -79,6 +79,7 @@ namespace ContactsApp.View
                 var newContact = addForm.Contact;
                 _project.Contacts.Add(newContact);
                 ContactsListBox.Items.Add(newContact.FullName);
+                UpdateSelectedContacts(_project.Contacts.Count - 1);
             }
         }
 
@@ -98,6 +99,7 @@ namespace ContactsApp.View
                 _project.Contacts.RemoveAt(index);
                 _project.Contacts.Insert(index, (Contact)newContact);
                 ContactsListBox.Items.Insert(index, newContact);
+                UpdateSelectedContacts(index);
             }
         }
 
