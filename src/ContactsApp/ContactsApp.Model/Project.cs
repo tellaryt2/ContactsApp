@@ -80,7 +80,7 @@ namespace ContactsApp.Model
         /// </summary>
         /// <param name="contacts"></param>
         /// <returns></returns>
-        private List<Contact> SortContacts(List<Contact> contacts)
+        public List<Contact> SortContacts(List<Contact> contacts)
         {
             contacts.Sort((c1,c2) => c1.FullName.CompareTo(c2.FullName));
             return contacts;

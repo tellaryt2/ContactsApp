@@ -33,10 +33,12 @@ namespace ContactsApp.View
         {
             ContactsListBox.Items.Clear();
 
+            _project.SortContacts(_project.Contacts);
             for (int i = 0; i < _project.ContactsCount; ++i)
             {
                 ContactsListBox.Items.Add(_project.Contacts[i].FullName);
             }
+            FindTextBox.Clear();
         }
 
         /// <summary>
@@ -127,7 +129,15 @@ namespace ContactsApp.View
         /// <param name="index">Индекс контакта</param>
         private void UpdateSelectedContacts(int index)
         {
-            var contact = _project.Contacts[index];
+            UpdateSelectedContactsField(_project.Contacts[index]);
+        }
+
+        /// <summary>
+        /// Запись данных контакта в поля на правой панели
+        /// </summary>
+        /// <param name="contact">Необходимый контакт</param>
+        private void UpdateSelectedContactsField(Contact contact)
+        {
             FullNameTextBox.Text = contact.FullName;
             EmailTextBox.Text = contact.Email;
             PhoneNumberTextBox.Text = contact.PhoneNumber;
@@ -154,8 +164,8 @@ namespace ContactsApp.View
         /// <param name="e"></param>
         private void AddContactButton_Click_1(object sender, EventArgs e)
         {
-            UpdateListBox();
             AddContact();
+            UpdateListBox();
         }
 
         /// <summary>
@@ -198,6 +208,52 @@ namespace ContactsApp.View
             {
                 EditContact(ContactsListBox.SelectedIndex);
                 UpdateListBox();
+            }
+        }
+
+        /// <summary>
+        /// Поиск контакта по подстроке в поле find
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FindTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var searchContact = _project.SearchContacts(FindTextBox.Text);
+            if (string.IsNullOrEmpty(FindTextBox.Text))
+            {
+                FindTextBox.BackColor = Color.White;
+                UpdateListBox();
+                searchContact.Clear();
+            }
+            else
+            {
+                try
+                {
+                    FindTextBox.BackColor = Color.White;
+                    for (int i = 0; i < _project.Contacts.Count; i++)
+                    {
+                        for (int j = 0; j < searchContact.Count; j++)
+                        {
+                            if (searchContact[j] == _project.Contacts[i])
+                            {
+                                Contact tempContact = _project.Contacts[i];
+                                _project.Contacts[i] = _project.Contacts[j];
+                                _project.Contacts[j] = tempContact;
+                            }
+                        }
+                    }
+                    ContactsListBox.Items.Clear();
+                    ClearSelectedContacts();
+                    for (int i = 0; i < searchContact.Count; ++i)
+                    {
+                        ContactsListBox.Items.Add(searchContact[i].FullName);
+                    }
+                    UpdateSelectedContactsField(searchContact[0]);
+                }
+                catch (ArgumentException)
+                {
+                    FindTextBox.BackColor = Color.LightPink;
+                }
             }
         }
 
@@ -346,6 +402,7 @@ namespace ContactsApp.View
             AddContactButton.Image = Properties.Resources.add_contact_32x32_gray;
             AddContactButton.BackColor = Color.White;
         }
+
 
     }
 }

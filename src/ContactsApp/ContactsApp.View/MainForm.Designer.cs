@@ -183,6 +183,7 @@
             this.FindTextBox.Name = "FindTextBox";
             this.FindTextBox.Size = new System.Drawing.Size(187, 20);
             this.FindTextBox.TabIndex = 1;
+            this.FindTextBox.TextChanged += new System.EventHandler(this.FindTextBox_TextChanged);
             // 
             // InfoPanel
             // 
@@ -304,7 +305,6 @@
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(175, 20);
             this.PhoneNumberTextBox.TabIndex = 6;
-            this.PhoneNumberTextBox.Text = "+7 (323) 123-22-11";
             this.PhoneNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhoneNumberTextBox_KeyPress);
             // 
             // PhoneNumberLabel
@@ -325,7 +325,6 @@
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(339, 20);
             this.EmailTextBox.TabIndex = 4;
-            this.EmailTextBox.Text = "abakumov@gmail.com";
             this.EmailTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EmailTextBox_KeyPress);
             // 
             // EmailLabel
@@ -346,7 +345,6 @@
             this.FullNameTextBox.Name = "FullNameTextBox";
             this.FullNameTextBox.Size = new System.Drawing.Size(340, 20);
             this.FullNameTextBox.TabIndex = 2;
-            this.FullNameTextBox.Text = "Абакумов Дмитрий Николаевич";
             this.FullNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FullNameTextBox_KeyPress);
             // 
             // FullNameLabel
@@ -376,7 +374,7 @@
             this.ClientSize = new System.Drawing.Size(693, 432);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainForm";
             this.Text = "ContactsApp";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
