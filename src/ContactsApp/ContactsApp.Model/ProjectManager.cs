@@ -13,6 +13,9 @@ namespace ContactsApp.Model
     /// </summary>
     public class ProjectManager
     {
+        /// <summary>
+        /// Имя файла
+        /// </summary>
         private static string _fileName = "\\ContactsApp.txt";
 
         /// <summary>

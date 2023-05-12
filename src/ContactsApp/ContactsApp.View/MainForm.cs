@@ -14,9 +14,14 @@ namespace ContactsApp.View
     public partial class MainForm : Form
     {
         /// <summary>
-        /// Создает объект объект проекта, хранящий в себе контакты
+        /// Создает объект проекта, хранящий в себе контакты
         /// </summary>
         private Project _project = new Project();
+
+        /// <summary>
+        /// Создает объект, реализующий сериализацию
+        /// </summary>
+        private ProjectManager _projectManager = new ProjectManager();
 
         /// <summary>
         /// Конструктор формы по умолчанию.
@@ -24,6 +29,8 @@ namespace ContactsApp.View
         public MainForm()
         {
             InitializeComponent();
+            _project = _projectManager.LoadProject();
+            UpdateListBox();
         }
 
         /// <summary>
@@ -82,6 +89,7 @@ namespace ContactsApp.View
                 _project.Contacts.Add(newContact);
                 ContactsListBox.Items.Add(newContact.FullName);
                 UpdateSelectedContacts(_project.Contacts.Count - 1);
+                _projectManager.SaveProject(_project);
             }
         }
 
@@ -101,7 +109,8 @@ namespace ContactsApp.View
                 _project.Contacts.RemoveAt(index);
                 _project.Contacts.Insert(index, (Contact)newContact);
                 ContactsListBox.Items.Insert(index, newContact);
-                UpdateSelectedContacts(index);
+                UpdateSelectedContacts(index); 
+                _projectManager.SaveProject(_project);
             }
         }
 
@@ -120,6 +129,7 @@ namespace ContactsApp.View
                         == DialogResult.Yes)
             {
                 _project.Contacts.RemoveAt(index);
+                _projectManager.SaveProject(_project);
             }
         }
 
@@ -264,8 +274,11 @@ namespace ContactsApp.View
         /// <param name="e"></param>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = MessageBox.Show("do you really want to close the program?",
-                    "Attention", MessageBoxButtons.YesNo) != DialogResult.Yes;
+            if (e.Cancel = MessageBox.Show("do you really want to close the program?",
+                    "Attention", MessageBoxButtons.YesNo) != DialogResult.Yes)
+            {
+                _projectManager.SaveProject(_project);
+            }
         }
 
         /// <summary>
