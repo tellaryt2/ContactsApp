@@ -11,8 +11,10 @@ namespace ContactsApp.Model
     /// <summary>
     /// Класс ProjectManager для реализации сохранения/загрузки файлов
     /// </summary>
-    internal class ProjectManager
+    public class ProjectManager
     {
+        private static string _fileName = "\\ContactsApp.txt";
+
         /// <summary>
         /// Путь к AppData
         /// </summary>
@@ -21,23 +23,34 @@ namespace ContactsApp.Model
         /// <summary>
         /// Путь к папке сохранения
         /// </summary>
-        private static string _path = $@"{_appData}\Minnebaev\ContactsApp\data.json";
+        private static string _path = $@"{_appData}\ContactsApp";
+
+        /// <summary>
+        /// Возвращает путь к папке сохранения
+        /// </summary>
+        public string Path { get { return _path; }}
+
+        /// <summary>
+        /// Возвращает имя файла
+        /// </summary>
+        public string FileName { get { return _fileName; }}
         
         /// <summary>
-        /// Сохранение данных
+        /// Сохранение данных в файл
         /// </summary>
         /// <param name="project"></param>
         public void SaveProject(Project project)
         {
-            if(!Directory.Exists(_path))
+            if(!Directory.Exists(Path))
             {
-                Directory.CreateDirectory(_path);
+                Directory.CreateDirectory(Path);
             }
-            File.WriteAllText(_path, JsonConvert.SerializeObject(project));
+            string json = JsonConvert.SerializeObject(project, Formatting.Indented);
+            File.WriteAllText(Path + FileName, json);
         }
 
         /// <summary>
-        /// Загрузка данных
+        /// Загрузка данных из файла
         /// </summary>
         /// <returns></returns>
         public Project LoadProject()
@@ -45,19 +58,17 @@ namespace ContactsApp.Model
             try
             {
                 Project project;
-
-                using (StreamReader reader = new StreamReader(_path))
+                string json = File.ReadAllText(Path + FileName);
+                project = JsonConvert.DeserializeObject<Project>(json);
+                if (project == null)
                 {
-                    string jsonData = reader.ReadToEnd();
-
-                    project = JsonConvert.DeserializeObject<Project>(jsonData);
+                    return new Project();
                 }
-
                 return project;
             }
-            catch
+            catch (Exception)
             {
-                return null;
+                return new Project();
             }
         }
     }
