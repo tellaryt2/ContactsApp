@@ -22,37 +22,37 @@ namespace ContactsApp.View
         /// <summary>
         /// Строка содержащая текст ошибки для полного имени
         /// </summary>
-        private string fullNameError = "";
+        private string _fullNameError = "";
 
         /// <summary>
         /// Строка содержащая текст ошибки для Email
         /// </summary>
-        private string emailError = "";
+        private string _emailError = "";
 
         /// <summary>
         /// Строка содержащая текст ошибки для телефонного номера
         /// </summary>
-        private string phoneNumberError = "";
+        private string _phoneNumberError = "";
 
         /// <summary>
         /// Строка содержащая текст ошибки для Id вконтакте
         /// </summary>
-        private string idVkError = "";
+        private string _idVkError = "";
 
         /// <summary>
         /// Строка содержащая текст ошибки для даты рождения
         /// </summary>
-        private string dateOfBirthError = "";
+        private string _dateOfBirthError = "";
 
         /// <summary>
         /// Белый цвет
         /// </summary>
-        private Color whiteColor = Color.White;
+        private Color _whiteColor = Color.White;
 
         /// <summary>
         /// Светло-розовый цвет
         /// </summary>
-        private Color lightPinkColor = Color.LightPink;
+        private Color _lightPinkColor = Color.LightPink;
 
         /// <summary>
         /// Возвращает и задает контакт
@@ -112,14 +112,14 @@ namespace ContactsApp.View
         {
             try
             {
-                FullNameTextBox.BackColor = whiteColor;
+                FullNameTextBox.BackColor = _whiteColor;
                 _contact.FullName = FullNameTextBox.Text;
-                fullNameError = "";
+                _fullNameError = "";
             }
             catch (ArgumentException error)
             {
-                FullNameTextBox.BackColor = lightPinkColor;
-                fullNameError = error.Message;
+                FullNameTextBox.BackColor = _lightPinkColor;
+                _fullNameError = error.Message;
             }
         }
 
@@ -140,14 +140,14 @@ namespace ContactsApp.View
         {
             try
             {
-                EmailTextBox.BackColor = whiteColor;
+                EmailTextBox.BackColor = _whiteColor;
                 _contact.Email = EmailTextBox.Text;
-                emailError = "";
+                _emailError = "";
             }
             catch (ArgumentException error)
             {
-                EmailTextBox.BackColor = lightPinkColor;
-                emailError = error.Message;
+                EmailTextBox.BackColor = _lightPinkColor;
+                _emailError = error.Message;
             }
         }
 
@@ -168,14 +168,14 @@ namespace ContactsApp.View
         {
             try
             {
-                PhoneNumberTextBox.BackColor = whiteColor;
+                PhoneNumberTextBox.BackColor = _whiteColor;
                 _contact.PhoneNumber = PhoneNumberTextBox.Text;
-                phoneNumberError = "";
+                _phoneNumberError = "";
             }
             catch (ArgumentException error)
             {
-                PhoneNumberTextBox.BackColor = lightPinkColor;
-                phoneNumberError = error.Message;
+                PhoneNumberTextBox.BackColor = _lightPinkColor;
+                _phoneNumberError = error.Message;
             }
         }
 
@@ -196,14 +196,14 @@ namespace ContactsApp.View
         {
             try
             {
-                VkTextBox.BackColor = whiteColor;
+                VkTextBox.BackColor = _whiteColor;
                 _contact.IdVk = VkTextBox.Text;
-                idVkError = "";
+                _idVkError = "";
             }
             catch (ArgumentException error)
             {
-                VkTextBox.BackColor = lightPinkColor;
-                idVkError = error.Message;
+                VkTextBox.BackColor = _lightPinkColor;
+                _idVkError = error.Message;
             }
         }
 
@@ -224,14 +224,14 @@ namespace ContactsApp.View
         {
             try
             {
-                DateTimePicker.CalendarMonthBackground = whiteColor;
+                DateTimePicker.CalendarMonthBackground = _whiteColor;
                 _contact.DateOfBirth = DateTimePicker.Value;
-                dateOfBirthError = "";
+                _dateOfBirthError = "";
             }
             catch (ArgumentException error)
             {
-                DateTimePicker.CalendarMonthBackground = lightPinkColor;
-                dateOfBirthError = error.Message;
+                DateTimePicker.CalendarMonthBackground = _lightPinkColor;
+                _dateOfBirthError = error.Message;
             }
         }
 
@@ -242,25 +242,25 @@ namespace ContactsApp.View
         private bool CheckFormOnErrors()
         {
             string fullStringError = ""; 
-            if (fullNameError != "")
+            if (_fullNameError != "")
             {
-                fullStringError += fullNameError + "\n";
+                fullStringError += _fullNameError + "\n";
             }
-            if (phoneNumberError != "")
+            if (_phoneNumberError != "")
             {
-                fullStringError += phoneNumberError + "\n";
+                fullStringError += _phoneNumberError + "\n";
             }
-            if (emailError != "")
+            if (_emailError != "")
             {
-                fullStringError += emailError + "\n";
+                fullStringError += _emailError + "\n";
             }
-            if (dateOfBirthError != "")
+            if (_dateOfBirthError != "")
             {
-                fullStringError += dateOfBirthError + "\n";
+                fullStringError += _dateOfBirthError + "\n";
             }
-            if (idVkError != "")
+            if (_idVkError != "")
             {
-                fullStringError += idVkError + "\n";
+                fullStringError += _idVkError + "\n";
             }
 
             if (fullStringError != "")
