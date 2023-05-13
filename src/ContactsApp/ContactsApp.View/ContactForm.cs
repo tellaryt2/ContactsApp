@@ -44,6 +44,9 @@ namespace ContactsApp.View
         /// </summary>
         private string dateOfBirthError = "";
 
+        private Color whiteColor = Color.White;
+
+        private Color lightPinkColor = Color.LightPink;
         /// <summary>
         /// Возвращает и задает контакт
         /// </summary>
@@ -94,13 +97,13 @@ namespace ContactsApp.View
         {
             try
             {
-                FullNameTextBox.BackColor = Color.White;
+                FullNameTextBox.BackColor = whiteColor;
                 _contact.FullName = FullNameTextBox.Text;
                 fullNameError = "";
             }
             catch (ArgumentException error)
             {
-                FullNameTextBox.BackColor = Color.LightPink;
+                FullNameTextBox.BackColor = lightPinkColor;
                 fullNameError = error.Message;
             }
         }
@@ -122,13 +125,13 @@ namespace ContactsApp.View
         {
             try
             {
-                EmailTextBox.BackColor = Color.White;
+                EmailTextBox.BackColor = whiteColor;
                 _contact.Email = EmailTextBox.Text;
                 emailError = "";
             }
             catch (ArgumentException error)
             {
-                EmailTextBox.BackColor = Color.LightPink;
+                EmailTextBox.BackColor = lightPinkColor;
                 emailError = error.Message;
             }
         }
@@ -150,13 +153,13 @@ namespace ContactsApp.View
         {
             try
             {
-                PhoneNumberTextBox.BackColor = Color.White;
+                PhoneNumberTextBox.BackColor = whiteColor;
                 _contact.PhoneNumber = PhoneNumberTextBox.Text;
                 phoneNumberError = "";
             }
             catch (ArgumentException error)
             {
-                PhoneNumberTextBox.BackColor = Color.LightPink;
+                PhoneNumberTextBox.BackColor = lightPinkColor;
                 phoneNumberError = error.Message;
             }
         }
@@ -178,13 +181,13 @@ namespace ContactsApp.View
         {
             try
             {
-                VkTextBox.BackColor = Color.White;
+                VkTextBox.BackColor = whiteColor;
                 _contact.IdVk = VkTextBox.Text;
                 idVkError = "";
             }
             catch (ArgumentException error)
             {
-                VkTextBox.BackColor = Color.LightPink;
+                VkTextBox.BackColor = lightPinkColor;
                 idVkError = error.Message;
             }
         }
@@ -206,13 +209,13 @@ namespace ContactsApp.View
         {
             try
             {
-                DateTimePicker.CalendarMonthBackground = Color.White;
+                DateTimePicker.CalendarMonthBackground = whiteColor;
                 _contact.DateOfBirth = DateTimePicker.Value;
                 dateOfBirthError = "";
             }
             catch (ArgumentException error)
             {
-                DateTimePicker.CalendarMonthBackground = Color.LightPink;
+                DateTimePicker.CalendarMonthBackground = lightPinkColor;
                 dateOfBirthError = error.Message;
             }
         }

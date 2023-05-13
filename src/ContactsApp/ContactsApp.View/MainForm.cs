@@ -49,33 +49,6 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Добавить новый рандомный контакт
-        /// </summary>
-        private void AddContactRandom()
-        {
-            Random random = new Random();
-            string[] fullNames = { "John Smith", "Jane Bond", "Bob Ros", "Alice Wand", "Mike Takeover" };
-            string[] phoneNumbers = { "+7(103)-211-22-11", "+7(112)-642-41-76",
-                "+7(325)-543-71-42", "+7(103)-444-34-98", "+7(333)-999-55-13" };
-            string[] emailDomains = { "qwer@gmail.com", "sadsda@mail.com", "vxcvxcv@hotmail.com",
-                "iyttseqwr@outlook.com", "sdasdasfaf@gmail.com" };
-            string[] idVk = { "2312314", "423423", "15235233", "312415", "34423243256" };
-            DateTime[] dateOfBirth = { DateTime.Today };
-
-            string randomFullName = fullNames[random.Next(fullNames.Length)];
-            string randomPhoneNumber = phoneNumbers[random.Next(phoneNumbers.Length)];
-            string randomEmail = emailDomains[random.Next(emailDomains.Length)];
-            string randomIdVk = idVk[random.Next(idVk.Length)];
-            DateTime randomDateOfBirth = dateOfBirth[random.Next(dateOfBirth.Length)];
-
-            Contact newContact = new Contact(randomFullName, randomEmail,randomPhoneNumber,
-                randomDateOfBirth, randomIdVk);
-
-            _project.Contacts.Add(newContact);
-            ContactsListBox.Items.Add(newContact.FullName);
-        }
-
-        /// <summary>
         /// Добавить новый контакт
         /// </summary>
         private void AddContact()
