@@ -44,9 +44,16 @@ namespace ContactsApp.View
         /// </summary>
         private string dateOfBirthError = "";
 
+        /// <summary>
+        /// Белый цвет
+        /// </summary>
         private Color whiteColor = Color.White;
 
+        /// <summary>
+        /// Светло-розовый цвет
+        /// </summary>
         private Color lightPinkColor = Color.LightPink;
+
         /// <summary>
         /// Возвращает и задает контакт
         /// </summary>
@@ -58,11 +65,7 @@ namespace ContactsApp.View
                 _contact = value;
                 if (_contact != null)
                 {
-                    FullNameTextBox.Text = _contact.FullName;
-                    PhoneNumberTextBox.Text = _contact.PhoneNumber;
-                    EmailTextBox.Text = _contact.Email;
-                    VkTextBox.Text = _contact.IdVk;
-                    DateTimePicker.Value = _contact.DateOfBirth;
+                    UpdateForm();
                 }
             }
         }
@@ -78,6 +81,18 @@ namespace ContactsApp.View
             CheckСorrectnessPhoneNumber();
             CheckСorrectnessIdVk();
             CheckСorrectnessDateOfBirth();
+        }
+
+        /// <summary>
+        /// Обновление полей формы
+        /// </summary>
+        private void UpdateForm()
+        {
+            FullNameTextBox.Text = _contact.FullName;
+            PhoneNumberTextBox.Text = _contact.PhoneNumber;
+            EmailTextBox.Text = _contact.Email;
+            VkTextBox.Text = _contact.IdVk;
+            DateTimePicker.Value = _contact.DateOfBirth;
         }
 
         /// <summary>
