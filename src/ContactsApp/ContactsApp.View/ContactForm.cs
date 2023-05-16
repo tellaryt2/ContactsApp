@@ -22,7 +22,7 @@ namespace ContactsApp.View
         /// <summary>
         /// Строка содержащая текст ошибки для полного имени
         /// </summary>
-        private string _fullNameError = "";
+        private string fullNameError = "";
 
         /// <summary>
         /// Строка содержащая текст ошибки для Email
@@ -52,7 +52,7 @@ namespace ContactsApp.View
         /// <summary>
         /// Светло-розовый цвет
         /// </summary>
-        private Color _lightPinkColor = Color.LightPink;
+        private Color _errorColor = Color.LightPink;
 
         /// <summary>
         /// Возвращает и задает контакт
@@ -76,11 +76,6 @@ namespace ContactsApp.View
         public ContactForm()
         {
             InitializeComponent();
-            CheckСorrectnessFullName();
-            CheckСorrectnessEmail();
-            CheckСorrectnessPhoneNumber();
-            CheckСorrectnessIdVk();
-            CheckСorrectnessDateOfBirth();
         }
 
         /// <summary>
@@ -114,12 +109,12 @@ namespace ContactsApp.View
             {
                 FullNameTextBox.BackColor = _whiteColor;
                 _contact.FullName = FullNameTextBox.Text;
-                _fullNameError = "";
+                fullNameError = "";
             }
             catch (ArgumentException error)
             {
-                FullNameTextBox.BackColor = _lightPinkColor;
-                _fullNameError = error.Message;
+                FullNameTextBox.BackColor = _errorColor;
+                fullNameError = error.Message;
             }
         }
 
@@ -146,7 +141,7 @@ namespace ContactsApp.View
             }
             catch (ArgumentException error)
             {
-                EmailTextBox.BackColor = _lightPinkColor;
+                EmailTextBox.BackColor = _errorColor;
                 _emailError = error.Message;
             }
         }
@@ -174,7 +169,7 @@ namespace ContactsApp.View
             }
             catch (ArgumentException error)
             {
-                PhoneNumberTextBox.BackColor = _lightPinkColor;
+                PhoneNumberTextBox.BackColor = _errorColor;
                 _phoneNumberError = error.Message;
             }
         }
@@ -202,7 +197,7 @@ namespace ContactsApp.View
             }
             catch (ArgumentException error)
             {
-                VkTextBox.BackColor = _lightPinkColor;
+                VkTextBox.BackColor = _errorColor;
                 _idVkError = error.Message;
             }
         }
@@ -230,7 +225,7 @@ namespace ContactsApp.View
             }
             catch (ArgumentException error)
             {
-                DateTimePicker.CalendarMonthBackground = _lightPinkColor;
+                DateTimePicker.CalendarMonthBackground = _errorColor;
                 _dateOfBirthError = error.Message;
             }
         }
@@ -242,9 +237,9 @@ namespace ContactsApp.View
         private bool CheckFormOnErrors()
         {
             string fullStringError = ""; 
-            if (_fullNameError != "")
+            if (fullNameError != "")
             {
-                fullStringError += _fullNameError + "\n";
+                fullStringError += fullNameError + "\n";
             }
             if (_phoneNumberError != "")
             {

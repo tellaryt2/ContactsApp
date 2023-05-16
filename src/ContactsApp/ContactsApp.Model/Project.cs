@@ -67,12 +67,26 @@ namespace ContactsApp.Model
         /// <returns></returns>
         public List<Contact> SearchContacts(string searchText)
         {
-            var options = StringComparison.OrdinalIgnoreCase;
+            /*var options = StringComparison.OrdinalIgnoreCase;
             return _contacts.Where(c =>
                 c.FullName.Contains(searchText) ||
                 c.Email.Contains(searchText) ||
                 c.PhoneNumber.Contains(searchText) ||
-                c.IdVk.IndexOf(searchText, options) >= 0).ToList();
+                c.IdVk.IndexOf(searchText, options) >= 0).ToList();*/
+
+            List <Contact> result = new List<Contact>();
+            foreach(Contact contact in Contacts)
+            {
+                if (contact.FullName.Contains(searchText) ||
+                    contact.PhoneNumber.Contains(searchText) ||
+                    contact.Email.Contains(searchText) ||
+                    contact.IdVk.Contains(searchText)
+                    )
+                {
+                    result.Add(contact);
+                }
+            }
+            return result;
         }
 
         /// <summary>
