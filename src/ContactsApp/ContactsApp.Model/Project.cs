@@ -28,33 +28,19 @@ namespace ContactsApp.Model
             }
         }
 
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public Project()
         {
             Contacts = new List<Contact>();
         }
 
         /// <summary>
-        /// Количество контактов
-        /// </summary>
-        public int ContactsCount
-        {
-            get { return _contacts.Count; }
-        }
-
-        /// <summary>
-        /// констуктор класса Contact
-        /// </summary>
-        /// <param name="contacts"></param>
-        public Project(List<Contact> contacts)
-        {
-            this.Contacts = contacts;
-        }
-
-        /// <summary>
         /// Поиск контакта по дню рождения
         /// </summary>
         /// <returns></returns>
-        public List<Contact> FindBirthdayContact(DateTime date)
+        public List<Contact> SeachBirthdayContact(DateTime date)
         {
             return _contacts.Where(c => c.DateOfBirth.Day == date.Day 
             && c.DateOfBirth.Month == date.Month).ToList();
