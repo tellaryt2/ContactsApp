@@ -49,7 +49,7 @@ namespace ContactsApp.Model
         private string _idVk;
 
         /// <summary>
-        /// Констурктор класса Contact
+        /// Конструктор класса Contact
         /// </summary>
         /// <param name="fullName"></param>
         /// <param name="email"></param>
@@ -63,6 +63,18 @@ namespace ContactsApp.Model
             PhoneNumber = phoneNumber;
             DateOfBirth = dateOfBirth;
             IdVk = idVk;
+        }
+
+        /// <summary>
+        /// Конструктор по умолчанию
+        /// </summary>
+        public Contact()
+        {
+            FullName = "Unknown";
+            Email = "any@gmail.com";
+            PhoneNumber = "+7 (777)-777-77-77";
+            DateOfBirth = DateTime.Today;
+            IdVk = "11111111";
         }
 
         /// <summary>

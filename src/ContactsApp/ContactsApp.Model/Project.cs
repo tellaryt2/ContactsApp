@@ -67,13 +67,6 @@ namespace ContactsApp.Model
         /// <returns></returns>
         public List<Contact> SearchContacts(string searchText)
         {
-            /*var options = StringComparison.OrdinalIgnoreCase;
-            return _contacts.Where(c =>
-                c.FullName.Contains(searchText) ||
-                c.Email.Contains(searchText) ||
-                c.PhoneNumber.Contains(searchText) ||
-                c.IdVk.IndexOf(searchText, options) >= 0).ToList();*/
-
             List <Contact> result = new List<Contact>();
             foreach(Contact contact in Contacts)
             {
@@ -99,6 +92,5 @@ namespace ContactsApp.Model
             contacts.Sort((c1,c2) => c1.FullName.CompareTo(c2.FullName));
             return contacts;
         }
-
     }
 }
