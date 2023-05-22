@@ -107,18 +107,22 @@ namespace ContactsApp.Model.UnitTests
         [Test(Description = "Негативный тест сеттера DateOfBirth")]
         public void DateOfBirth_SetUncorrectValueLaterToday_ReturnsSameValue()
         {
+            // Arrange // Act
             var uncorrectDateOfBirth = new DateTime(2077, 1, 1);
             string message = "Присвоение неправильной даты рождения (позднее сегодняшней)";
 
+            // Assert
             Assert.Throws<ArgumentException>(() => { _contact.DateOfBirth = uncorrectDateOfBirth; }, message);
         }
 
         [Test(Description = "Негативный тест сеттера DateOfBirth")]
         public void DateOfBirth_SetUncorrectValueOldDate_ReturnsSameValue()
         {
+            // Arrange // Act
             var uncorrectDateOfBirth = new DateTime(1899, 12, 30);
             string message = "Присвоение неправильной даты рождения (раньше 1900 года)";
 
+            // Assert
             Assert.Throws<ArgumentException>(() => { _contact.DateOfBirth = uncorrectDateOfBirth; }, message);
         }
 
