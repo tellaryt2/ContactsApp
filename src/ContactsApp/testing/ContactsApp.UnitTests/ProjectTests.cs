@@ -48,7 +48,7 @@ namespace ContactsApp.Model.UnitTests
             Contact secondContact = new Contact("Василий Васильевич", "Vasya@mail.ru", "+7 934(834)-11-22",
                new DateTime(1988, 4, 5), "id423645");
             Contact thirdContact = new Contact("Елена Петровна", "Elena@mail.ru", "+7 (777)-777-77-77",
-               new DateTime(2002, 9, 9), "id21312415");
+               new DateTime(2002, 9, 9), "id231312415");
 
             alreadySortedContacts.Add(firstContact);
             alreadySortedContacts.Add(secondContact);
