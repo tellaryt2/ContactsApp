@@ -23,16 +23,16 @@ namespace ContactsApp.Model.UnitTests
             List<Contact> contacts = new List<Contact>();
             contacts.Add(firstContact);
             contacts.Add(secondContact);
-            var expected = contacts;
+            var expectedContacts = contacts;
 
             // Act
             _project.Contacts.Add(firstContact);
             _project.Contacts.Add(secondContact);
 
-            var actual = _project.Contacts;
+            var actualContacts = _project.Contacts;
 
             // Assert
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedContacts, actualContacts);
         }
 
         [Test(Description = "Позитивный тест метода SortContacts")]
@@ -52,7 +52,7 @@ namespace ContactsApp.Model.UnitTests
             alreadySortedContacts.Add(secondContact);
             alreadySortedContacts.Add(thirdContact);
 
-            var expected = alreadySortedContacts;
+            var expectedSortContacts = alreadySortedContacts;
 
             // Act
             List<Contact> contacts = new List<Contact>();
@@ -60,10 +60,10 @@ namespace ContactsApp.Model.UnitTests
             contacts.Add(secondContact);
             contacts.Add(firstContact);
             
-            var actual = _project.SortContacts(contacts);
+            var actualSortContacts = _project.SortContacts(contacts);
 
             // Assert
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedSortContacts, actualSortContacts);
         }
 
         [Test(Description = "Позитивный тест метода SearchContacts")]
@@ -77,15 +77,15 @@ namespace ContactsApp.Model.UnitTests
 
             SearchContacts.Add(SetupContact);
 
-            var expected = SearchContacts;
+            var expectedSearchContacts = SearchContacts;
 
             // Act
             _project.Contacts.Add(SetupContact);
             string substring = "Алексей";
-            var actual = _project.SearchContacts(substring);
+            var actualSearchContacts = _project.SearchContacts(substring);
 
             // Assert
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedSearchContacts, actualSearchContacts);
         }
 
         [Test(Description = "Позитивный тест метода SeachBirthDayContact")]
@@ -98,15 +98,15 @@ namespace ContactsApp.Model.UnitTests
                new DateTime(2001, 4, 3), "id31245123");
 
             SearchBirthdayContacts.Add(SetupContact);
-            var expected = SearchBirthdayContacts;
+            var expectedSearchContacts = SearchBirthdayContacts;
 
             // Act
             _project.Contacts.Add(SetupContact);
             var searchDate = new DateTime(2001, 4, 3);
-            var actual = _project.SeachBirthdayContact(searchDate);
+            var actualSearchContacts = _project.SeachBirthdayContact(searchDate);
 
             // Assert
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedSearchContacts, actualSearchContacts);
         }
     }
 }

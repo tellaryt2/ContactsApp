@@ -13,6 +13,84 @@ namespace ContactsApp.Model.UnitTests
     {
         private Contact _contact = new Contact();
 
+        [Test(Description = "Позитивный тест конструктора Contact")]
+        public void Сonstructor_SetCorrectValue_ReturnsSameValue()
+        {
+            // Arrange
+            var correctFullName = "Евгений Иванов Петрович";
+            var expectedFullName = correctFullName;
+
+            var correctEmail = "testemailtusur@gmail.com";
+            var expectedEmail = correctEmail;
+
+            var correctPhoneNumber = "+7 (903)-047-85-79";
+            var expectedPhoneNumber = correctPhoneNumber;
+
+            var correctDateOfBirth = new DateTime(1995, 2, 14);
+            var expectedDateOfBirth = correctDateOfBirth;
+
+            var correctIdVk = "id328921849";
+            var expectedIdVk = correctIdVk;
+
+            //Act
+            Contact contact = new Contact(correctFullName, correctEmail, correctPhoneNumber, correctDateOfBirth, correctIdVk);
+
+            var actualFullName = contact.FullName;
+            var actualEmail = contact.Email;
+            var actualPhoneNumber = contact.PhoneNumber;
+            var actualDateOfBirth = contact.DateOfBirth;
+            var actualIdVk = contact.IdVk;
+
+            //Assert
+            Assert.Multiple(
+                () =>
+                {
+                    Assert.AreEqual(expectedFullName, actualFullName);
+                    Assert.AreEqual(expectedEmail, actualEmail);
+                    Assert.AreEqual(expectedPhoneNumber, actualPhoneNumber);
+                    Assert.AreEqual(expectedDateOfBirth, actualDateOfBirth);
+                    Assert.AreEqual(expectedIdVk, actualIdVk);
+                }
+                );
+        }
+
+        [Test(Description = "Негативный тест конструктора Contact")]
+        public void Сonstructor_SetUncorrectValue_ReturnsSameValue()
+        {
+            // Arrange
+            var wrongFullName = "Евгений Иванов Петрович Евгений Иванов Петрович Евгений Иванов Петрович" +
+                "Евгений Иванов ПетровичЕвгений Иванов ПетровичЕвгений Иванов ПетровичЕвгений Иванов Петрович" +
+                "Евгений Иванов ПетровичЕвгений Иванов ПетровичЕвгений Иванов ПетровичЕвгений Иванов Петрович" +
+                "Евгений Иванов ПетровичЕвгений Иванов Петрович";
+            var expectedFullName = wrongFullName;
+
+            var wrongEmail = "";
+            var expectedEmail = wrongEmail;
+
+            var wrongPhoneNumber = "bfghfhfgh";
+            var expectedPhoneNumber = wrongPhoneNumber;
+
+            var wrongDateOfBirth = new DateTime(1899, 2, 14);
+            var expectedDateOfBirth = wrongDateOfBirth;
+
+            var wrongIdVk = "id328921849";
+            var expectedIdVk = wrongIdVk;
+
+            string message = "Попытка присвоить неправильные данные контакту";
+
+            // Assert
+            Assert.Throws<ArgumentException>(() =>
+            {
+                // Act
+                _contact.FullName = wrongFullName;
+                _contact.Email = wrongEmail;
+                _contact.PhoneNumber = wrongPhoneNumber;
+                _contact.DateOfBirth = wrongDateOfBirth;
+                _contact.IdVk = wrongIdVk;
+            },
+            message);
+        }
+
         // Arrange
         [TestCase("",
             "Должно возникать исключение, если полное имя - пустая строка",
@@ -26,7 +104,12 @@ namespace ContactsApp.Model.UnitTests
         public void FullName_SetUncorrectValue_ArgumentException(string wrongFullName, string message)
         {
             // Assert
-            Assert.Throws<ArgumentException>(() => { _contact.FullName = wrongFullName; }, message);
+            Assert.Throws<ArgumentException>(() => 
+            { 
+                // Act
+                _contact.FullName = wrongFullName; 
+            },
+            message);
         }
 
         [Test(Description = "Позитивный тест сеттера FullName")]
@@ -34,14 +117,14 @@ namespace ContactsApp.Model.UnitTests
         {
             // Arrange
             var correctFullName = "Евгений Иванов Петрович";
-            var expected = correctFullName;
+            var expectedFullName = correctFullName;
 
             // Act
             _contact.FullName = correctFullName;
-            var actual = _contact.FullName;
+            var actualFullName = _contact.FullName;
 
             // Assert
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedFullName, actualFullName);
         }
 
         // Arrange
@@ -57,7 +140,12 @@ namespace ContactsApp.Model.UnitTests
         public void Email_SetUncorrectValue_ArgumentException(string wrongEmail, string message)
         {
             // Assert
-            Assert.Throws<ArgumentException>(() => { _contact.Email = wrongEmail; }, message);
+            Assert.Throws<ArgumentException>(() => 
+            {
+                // Act
+                _contact.Email = wrongEmail; 
+            }, 
+            message);
         }
 
         [Test(Description = "Позитивный тест сеттера Email")]
@@ -65,14 +153,14 @@ namespace ContactsApp.Model.UnitTests
         {
             // Arrange
             var correctEmail = "testemailtusur@gmail.com";
-            var expected = correctEmail;
+            var expectedEmail = correctEmail;
 
             // Act
             _contact.Email = correctEmail;
-            var actual = _contact.Email;
+            var actualEmail = _contact.Email;
 
             // Assert
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedEmail, actualEmail);
         }
 
         // Arrange
@@ -86,7 +174,12 @@ namespace ContactsApp.Model.UnitTests
         public void PhoneNumber_SetUncorrectValue_ArgumentException(string wrongPhoneNumber, string message)
         {
             // Assert
-            Assert.Throws<ArgumentException>(() => { _contact.PhoneNumber = wrongPhoneNumber; }, message);
+            Assert.Throws<ArgumentException>(() => 
+            {
+                // Act
+                _contact.PhoneNumber = wrongPhoneNumber; 
+            }, 
+            message);
         }
 
         [Test(Description = "Позитивный тест сеттера PhoneNumber")]
@@ -94,36 +187,46 @@ namespace ContactsApp.Model.UnitTests
         {
             // Arrange
             var correctPhoneNumber = "+7 (903)-047-85-79";
-            var expected = correctPhoneNumber;
+            var expectedPhoneNumber = correctPhoneNumber;
 
             // Act
             _contact.PhoneNumber = correctPhoneNumber;
-            var actual = _contact.PhoneNumber;
+            var actualPhoneNumber = _contact.PhoneNumber;
 
             // Assert
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedPhoneNumber, actualPhoneNumber);
         }
 
         [Test(Description = "Негативный тест сеттера DateOfBirth")]
         public void DateOfBirth_SetUncorrectValueLaterToday_ReturnsSameValue()
         {
-            // Arrange // Act
+            // Arrange
             var uncorrectDateOfBirth = new DateTime(2077, 1, 1);
             string message = "Присвоение неправильной даты рождения (позднее сегодняшней)";
 
             // Assert
-            Assert.Throws<ArgumentException>(() => { _contact.DateOfBirth = uncorrectDateOfBirth; }, message);
+            Assert.Throws<ArgumentException>(() => 
+            {
+                // Act
+                _contact.DateOfBirth = uncorrectDateOfBirth; 
+            }, 
+            message);
         }
 
         [Test(Description = "Негативный тест сеттера DateOfBirth")]
         public void DateOfBirth_SetUncorrectValueOldDate_ReturnsSameValue()
         {
-            // Arrange // Act
+            // Arrange
             var uncorrectDateOfBirth = new DateTime(1899, 12, 30);
             string message = "Присвоение неправильной даты рождения (раньше 1900 года)";
 
             // Assert
-            Assert.Throws<ArgumentException>(() => { _contact.DateOfBirth = uncorrectDateOfBirth; }, message);
+            Assert.Throws<ArgumentException>(() => 
+            {
+                // Act
+                _contact.DateOfBirth = uncorrectDateOfBirth; 
+            }, 
+            message);
         }
 
         [Test(Description = "Позитивный тест сеттера DateOfBirth")]
@@ -131,14 +234,14 @@ namespace ContactsApp.Model.UnitTests
         {
             // Arrange
             var correctDateOfBirth = new DateTime(1995, 2, 14);
-            var expected = correctDateOfBirth;
+            var expectedDateOfBirth = correctDateOfBirth;
 
             // Act
             _contact.DateOfBirth = correctDateOfBirth;
-            var actual = _contact.DateOfBirth;
+            var actuaDateOfBirthl = _contact.DateOfBirth;
 
             // Assert
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedDateOfBirth, actuaDateOfBirthl);
         }
 
         // Arrange
@@ -153,7 +256,12 @@ namespace ContactsApp.Model.UnitTests
         public void IdVk_SetUncorrectValue_ArgumentException(string wrongIdVk, string message)
         {
             // Assert
-            Assert.Throws<ArgumentException>(() => { _contact.IdVk = wrongIdVk; }, message);
+            Assert.Throws<ArgumentException>(() =>
+            {
+                // Act
+                _contact.IdVk = wrongIdVk; 
+            }, 
+            message);
         }
 
         [Test(Description = "Позитивный тест сеттера IdVk")]
@@ -161,14 +269,14 @@ namespace ContactsApp.Model.UnitTests
         {
             // Arrange
             var correctIdVk = "id328921849";
-            var expected = correctIdVk;
+            var expectedIdVk = correctIdVk;
 
             // Act
             _contact.IdVk = correctIdVk;
-            var actual = _contact.IdVk;
+            var actualIdVk = _contact.IdVk;
 
             // Assert
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedIdVk, actualIdVk);
         }
 
         [Test(Description = "Позитивный тест метода Clone()")]
@@ -177,21 +285,21 @@ namespace ContactsApp.Model.UnitTests
             // Arrange
             Contact cloneContact = new Contact("Vladimir Petrov", "Vlad@mail.ru", "+7 902(054)-21-33",
                 new DateTime(1932, 4, 5), "id32859429");
-            var expected = cloneContact;
+            var expectedContact = cloneContact;
 
             // Act
             Contact newContact = (Contact)cloneContact.Clone();
-            var actual = newContact;
+            var actualContact = newContact;
 
             // Assert
             Assert.Multiple(
                 () =>
                 {
-                    Assert.AreEqual(expected.FullName, actual.FullName);
-                    Assert.AreEqual(expected.Email, actual.Email);
-                    Assert.AreEqual(expected.PhoneNumber, actual.PhoneNumber);
-                    Assert.AreEqual(expected.DateOfBirth, actual.DateOfBirth);
-                    Assert.AreEqual(expected.IdVk, actual.IdVk);
+                    Assert.AreEqual(expectedContact.FullName, actualContact.FullName);
+                    Assert.AreEqual(expectedContact.Email, actualContact.Email);
+                    Assert.AreEqual(expectedContact.PhoneNumber, actualContact.PhoneNumber);
+                    Assert.AreEqual(expectedContact.DateOfBirth, actualContact.DateOfBirth);
+                    Assert.AreEqual(expectedContact.IdVk, actualContact.IdVk);
                 }
                 );
         }
