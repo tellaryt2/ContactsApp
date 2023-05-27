@@ -10,11 +10,11 @@ namespace ContactsApp.Model.UnitTests
     [TestFixture]
     public class ProjectTests
     {
-        Project _project = new Project();
-
         [Test(Description = "Позитивный тест геттера Contacts")]
         public void Contacts_GetContacts_ReturnsContacts()
         {
+            Project project = new Project();
+
             // Arrange
             Contact firstContact = new Contact("Евгений Иванов Петрович", "Vlad@mail.ru", "+7 902(054)-21-33",
                new DateTime(1999, 6, 1), "id32859429");
@@ -26,10 +26,10 @@ namespace ContactsApp.Model.UnitTests
             var expectedContacts = contacts;
 
             // Act
-            _project.Contacts.Add(firstContact);
-            _project.Contacts.Add(secondContact);
+            project.Contacts.Add(firstContact);
+            project.Contacts.Add(secondContact);
 
-            var actualContacts = _project.Contacts;
+            var actualContacts = project.Contacts;
 
             // Assert
             Assert.AreEqual(expectedContacts, actualContacts);
@@ -38,6 +38,8 @@ namespace ContactsApp.Model.UnitTests
         [Test(Description = "Позитивный тест метода SortContacts")]
         public void SortContacts_SortContacts_ReturnsSortedListContacts()
         {
+            Project project = new Project();
+
             // Arrange
             List<Contact> alreadySortedContacts = new List<Contact>();
 
@@ -60,7 +62,7 @@ namespace ContactsApp.Model.UnitTests
             contacts.Add(secondContact);
             contacts.Add(firstContact);
             
-            var actualSortContacts = _project.SortContacts(contacts);
+            var actualSortContacts = project.SortContacts(contacts);
 
             // Assert
             Assert.AreEqual(expectedSortContacts, actualSortContacts);
@@ -69,41 +71,65 @@ namespace ContactsApp.Model.UnitTests
         [Test(Description = "Позитивный тест метода SearchContacts")]
         public void SearchContacts_SearchContacts_ReturnsListSearchedContacts()
         {
-            // Arrange
-            List<Contact> SearchContacts = new List<Contact>();
+            Project project = new Project();
 
-            Contact SetupContact = new Contact("Алексей Михайлович", "Alex@mail.ru", "+7 999(321)-11-33",
+            // Arrange
+            List<Contact> searchContacts = new List<Contact>();
+
+            Contact newContact = new Contact("Алексей Михайлович", "Alex@mail.ru", "+7 999(321)-11-33",
                new DateTime(1991, 6, 1), "id32423123");
 
-            SearchContacts.Add(SetupContact);
+            searchContacts.Add(newContact);
 
-            var expectedSearchContacts = SearchContacts;
+            var expectedSearchContacts = searchContacts;
 
             // Act
-            _project.Contacts.Add(SetupContact);
+            project.Contacts.Add(newContact);
             string substring = "Алексей";
-            var actualSearchContacts = _project.SearchContacts(substring);
+            var actualSearchContacts = project.SearchContacts(substring);
 
             // Assert
             Assert.AreEqual(expectedSearchContacts, actualSearchContacts);
         }
 
+        [Test(Description = "Негативный тест метода SearchContacts")]
+        public void SearchContacts_UncorrectedSearchContacts_ReturnsUncorrectingListSearchedContacts()
+        {
+            Project project = new Project();
+
+            // Arrange
+            List<Contact> emptySeacrhContacts = new List<Contact>();
+
+            var expectedSearchContacts = emptySeacrhContacts;
+
+            // Act
+            string substring = "Никита";
+            emptySeacrhContacts = project.SearchContacts(substring);
+            var actualSearchContacts = emptySeacrhContacts;
+
+            // Assert
+            Assert.AreEqual(expectedSearchContacts, actualSearchContacts);
+
+        }
+
         [Test(Description = "Позитивный тест метода SeachBirthDayContact")]
         public void SeachBirthDayContact_SearchContacts_ReturnsListSearchedContacts()
         {
-            // Arrange
-            List<Contact> SearchBirthdayContacts = new List<Contact>();
+            Project project = new Project();
 
-            Contact SetupContact = new Contact("Никита Семенович", "nikitos@mail.ru", "+7 321(377)-66-33",
+            // Arrange
+            List<Contact> searchBirthdayContacts = new List<Contact>();
+
+            Contact setupContact = new Contact("Никита Семенович", "nikitos@mail.ru", "+7 321(377)-66-33",
                new DateTime(2001, 4, 3), "id31245123");
 
-            SearchBirthdayContacts.Add(SetupContact);
-            var expectedSearchContacts = SearchBirthdayContacts;
+            searchBirthdayContacts.Add(setupContact);
+            var expectedSearchContacts = searchBirthdayContacts;
 
             // Act
-            _project.Contacts.Add(SetupContact);
+            project.Contacts.Add(setupContact);
             var searchDate = new DateTime(2001, 4, 3);
-            var actualSearchContacts = _project.SeachBirthdayContact(searchDate);
+            var actualSearchContacts = project.SeachBirthdayContact(searchDate);
 
             // Assert
             Assert.AreEqual(expectedSearchContacts, actualSearchContacts);
