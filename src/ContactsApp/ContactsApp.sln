@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApp.View", "Contact
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApp.Model", "ContactsApp.Model\ContactsApp.Model.csproj", "{10937DD3-42BC-415A-9183-46A728B1337B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "testing", "testing", "{215AADD7-6A78-4E54-A5E7-290CDF88E6A6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{215AADD7-6A78-4E54-A5E7-290CDF88E6A6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApp.Model.UnitTests", "testing\ContactsApp.UnitTests\ContactsApp.Model.UnitTests.csproj", "{A9F46658-CBB1-48D0-8A48-9655C8BA0716}"
 EndProject
