@@ -49,7 +49,7 @@ namespace ContactsApp.View
 
             if (FindTextBox.Text != "")
             {
-                _displayContact = _project.SearchContacts(FindTextBox.Text);
+                _displayContact = _project.FindContacts(FindTextBox.Text);
             }
             else
             {

@@ -87,7 +87,7 @@ namespace ConttactsApp.Model.UnitTests
             // Act
             project.Contacts.Add(newContact);
             string substring = "Алексей";
-            var actualSearchContacts = project.SearchContacts(substring);
+            var actualSearchContacts = project.FindContacts(substring);
 
             // Assert
             Assert.AreEqual(expectedSearchContacts, actualSearchContacts);
@@ -105,7 +105,7 @@ namespace ConttactsApp.Model.UnitTests
 
             // Act
             string substring = "Никита";
-            emptySeacrhContacts = project.SearchContacts(substring);
+            emptySeacrhContacts = project.FindContacts(substring);
             var actualSearchContacts = emptySeacrhContacts;
 
             // Assert
@@ -129,7 +129,7 @@ namespace ConttactsApp.Model.UnitTests
             // Act
             project.Contacts.Add(setupContact);
             var searchDate = new DateTime(2001, 4, 3);
-            var actualSearchContacts = project.SeachBirthdayContact(searchDate);
+            var actualSearchContacts = project.FindBirthdayContact(searchDate);
 
             // Assert
             Assert.AreEqual(expectedSearchContacts, actualSearchContacts);

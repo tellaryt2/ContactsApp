@@ -76,6 +76,8 @@ namespace ContactsApp.View
         public ContactForm()
         {
             InitializeComponent();
+            CheckСorrectnessFullName();
+            FullNameTextBox.BackColor = _whiteColor;
         }
 
         /// <summary>

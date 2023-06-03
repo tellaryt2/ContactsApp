@@ -40,7 +40,7 @@ namespace ContactsApp.Model
         /// Поиск контакта по дню рождения
         /// </summary>
         /// <returns></returns>
-        public List<Contact> SeachBirthdayContact(DateTime date)
+        public List<Contact> FindBirthdayContact(DateTime date)
         {
             return _contacts.Where(c => c.DateOfBirth.Day == date.Day 
             && c.DateOfBirth.Month == date.Month).ToList();
@@ -51,7 +51,7 @@ namespace ContactsApp.Model
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
-        public List<Contact> SearchContacts(string searchText)
+        public List<Contact> FindContacts(string searchText)
         {
             List <Contact> result = new List<Contact>();
             foreach(Contact contact in Contacts)
