@@ -91,7 +91,7 @@ namespace ContactsApp.View
             {
                 _project.Contacts.Remove(_displayContact[index]);
                 _project.Contacts.Add(editForm.Contact);
-                UpdateSelectedContacts(index); 
+                UpdateSelectedContactsField(editForm.Contact);
                 _projectManager.SaveProject(_project);
             }
         }
@@ -197,10 +197,12 @@ namespace ContactsApp.View
         /// <param name="e"></param>
         private void EditContactButton_Click(object sender, EventArgs e)
         {
+            int index = ContactsListBox.SelectedIndex;
             if (ContactsListBox.SelectedIndex != -1)
             {
                 EditContact(ContactsListBox.SelectedIndex);
                 UpdateListBox();
+                ContactsListBox.SetSelected(index, true);
             }
         }
 
